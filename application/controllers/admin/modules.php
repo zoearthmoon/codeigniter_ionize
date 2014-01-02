@@ -1,0 +1,320 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Ionize, creative CMS
+ * Modules Controller
+ * Displays Modules list
+ *
+ * @package		Ionize
+ * @author		Ionize Dev Team
+ * @license		http://doc.ionizecms.com/en/basic-infos/license-agreement
+ * @link		http://ionizecms.com
+ * @since		Version 0.9.0
+ */
+
+class Modules extends MY_admin
+{
+
+	/**
+	 * Constructor
+	 *
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
+
+	// ------------------------------------------------------------------------
+
+
+	/**
+	 * Default : List exiting modules
+	 *
+	 */
+	public function index()
+	{
+		// Modules in "modules" folder
+		$found_modules = Modules()->get_modules();
+
+		// ionize Modules config
+		$modules = array();
+		include APPPATH . 'config/modules.php';
+
+		// Get all modules from folders
+		foreach($found_modules as $folder => &$module)
+		{
+			// Does the module install tables in DB ?
+			$module['uses_database'] = FALSE;
+			$module['installed'] = FALSE;
+			$module['uri_user_segment'] = $module['uri'];
+
+			if (in_array($folder, $modules))
+			{
+				// Set installed to true
+				$module['installed'] = TRUE;
+
+				// Get the user segment
+				foreach($modules as $segment => $f)
+				{
+					if ($f == $folder)
+						$module['uri_user_segment'] = $segment;
+				}
+			}
+		}
+
+		$this->template['modules'] = $found_modules;
+
+		$this->output('modules/index');
+	}
+
+
+
+	// ------------------------------------------------------------------------
+
+
+	/**
+	 * Installs one module
+	 *
+	 * @param	string	Module Folder name
+	 * @param	string	Module User's choosen URI (by default, the "uri_segment" value in config.php
+	 *
+	 */
+	public function install($module_folder, $module_uri)
+	{
+		// Add the module in $module config array : /application/config/modules.php
+		if ( ! is_really_writable(APPPATH.'/config/modules.php'))
+		{
+			$this->error(lang('ionize_message_module_install_error_config_write'). ' : ' .APPPATH.'/config/modules.php');
+		}
+		else
+		{
+			// Get the modules config file : $modules, $disable_controller, $aliases
+			$modules = array();
+			$disable_controller = array();
+			$aliases = array();
+			include APPPATH . 'config/modules.php';
+
+			// Load the module config
+			$config = Modules()->get_module_config($module_folder);
+
+			//set to true/false
+			$config['has_frontend'] = !empty($config['has_frontend']);
+
+			if ($config['has_frontend'] && $this->_has_conflict_with_uri($module_uri) )
+			{
+				$this->error(lang('ionize_message_module_page_conflict'));
+			}
+			else
+			{
+				// uri => Module Folder
+				$modules[$module_uri] = $module_folder;
+
+				// The module controller is disabled : Not possible to call this module from controller.
+				if (! $config['has_frontend'] && ! in_array($module_uri, $disable_controller))
+					$disable_controller[] = $module_uri;
+
+				// Database installer
+				$database_install_script = ! empty($config['database_installer']) ? $config['database_installer'] : 'database.xml';
+
+				if (file_exists(MODPATH . $module_folder . '/' . $database_install_script))
+					$this->install_database_script($database_install_script, $module_folder);
+
+				// Write config file : /application/config/modules.php
+				$this->save_config($modules, $aliases, $disable_controller);
+
+				// Reload the panel
+				$this->update[] = array(
+					'element' => 'mainPanel',
+					'url' => 'modules'
+				);
+
+				// OK Answer
+				$this->success(lang('ionize_message_module_saved'));
+			}
+		}
+	}
+
+
+	// ------------------------------------------------------------------------
+
+
+	/**
+	 * Uninstall one module
+	 *
+	 * @param	string	Module Folder
+	 *
+	 */
+	function uninstall($module_folder)
+	{
+		// Get the modules config file
+		$modules = array();
+		$disable_controller = array();
+		$aliases = array();
+		include APPPATH . 'config/modules.php';
+
+		// Filter the module array
+		unset($modules[array_search($module_folder, $modules)]);
+
+		// Find the module's uri and unset it
+		$key = ((array_search($module_folder, $modules)));
+		unset($disable_controller[array_search($key, $disable_controller)]);
+
+		// Write config file
+		if ($this->save_config($modules, $aliases, $disable_controller))
+		{
+			// Reload the panel
+			$this->update[] = array(
+				'element' => 'mainPanel',
+				'url' => 'modules'
+			);
+			
+			// Answer
+			$this->success(lang('ionize_message_module_uninstalled'));
+		}
+		else
+		{
+			$this->error(lang('ionize_message_module_install_error_config_write'));
+		}
+	}
+
+
+	// ------------------------------------------------------------------------
+
+
+	function save_config($modules, $aliases, $disable_controller)
+	{
+		$str = "<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); \n\n";
+		$str .= '$modules = '.dump_variable($modules)."\n\n";
+		$str .= '$aliases = '.dump_variable($aliases)."\n\n";
+		$str .= '$disable_controller = '.dump_variable($disable_controller)."\n\n";
+		$str .= "\n\n";
+		$str .= '/* Auto generated by Modules Administration on : '.date('Y.m.d H:i:s').' */'."\n";
+
+		// write
+		$ret = @file_put_contents(APPPATH . '/config/modules' . EXT, $str);
+
+		// num bytes written > 0
+		if($ret)
+			return TRUE;
+
+		return FALSE;
+	}
+
+
+	// ------------------------------------------------------------------------
+
+
+	/**
+	 * Installs the module database based on a separated simple XML script
+	 *
+	 * @param	String	File name
+	 * @param	String	Module's folder
+	 *
+	 * @return	array	Array of errors
+	 *
+	 * The database.xml script must look like the database.xml install file :
+	 *
+	 * 	<?xml version="1.0" ?>
+	 *	<sql>
+	 *		<name>Ionize Shop Module Database Creation script</name>
+	 *		<version>0.9.7</version>
+	 *		<license>Open Source MIT license</license>
+	 *		
+	 *		<!-- Tables definition -->
+	 *		<tables>
+	 *			<query>
+	 *				CREATE  TABLE IF NOT EXISTS `my_table` (
+	 *				  `id_my_table` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
+	 *				  `field1` VARCHAR(30) ,
+	 *				  `default_value` DECIMAL(12,3) NULL ,
+	 *				  PRIMARY KEY (`id_my_table`)
+	 *				)
+	 *				ENGINE = InnoDB
+	 *				AUTO_INCREMENT = 1
+	 *				DEFAULT CHARACTER SET = utf8
+	 *				COLLATE = utf8_unicode_ci;
+	 *			</query>
+	 *			<query>
+	 *				...
+	 *			</query>
+	 *		</tables>
+	 *			
+	 *		<!-- Basic Content -->
+	 *		<content>
+	 *			<query>INSERT INTO my_table VALUES (1, 'EU', 10.2);</query>
+	 *			<query>INSERT INTO my_table VALUES (2, 'AR', 5);</query>
+	 *		</content>				
+	 *			
+	 *	</sql>		
+	 *
+	 *
+	 */
+	function install_database_script($script, $module_folder)
+	{
+		$errors = array();
+
+		$script_path = MODPATH . $module_folder . '/' . $script;
+
+		if ( ! file_exists($script_path))
+		{
+			$errors[] = 'SQL File ' . $script . ' cannot be found.';
+		}
+		else
+		{
+			$xml = simplexml_load_file($script_path);
+
+			// Get tables & content
+			$tables = $xml->xpath('/sql/tables/query');
+			$content = $xml->xpath('/sql/content/query');
+
+			// Create tables
+			foreach ($tables as $sql)
+			{
+				if ( ! $this->db->simple_query($sql))
+				{
+					$errors[] = $sql;
+				}
+			}
+			
+			// Add content
+			foreach ($content as $sql)
+			{
+				$this->db->simple_query($sql);
+			}
+		}
+
+		return $errors;
+	}
+
+
+	// ------------------------------------------------------------------------
+
+
+	/**
+	 * Checks if the module's URI has conflict with one existing website URL
+	 *
+	 * @param $module_uri
+	 *
+	 * @return bool
+	 */
+	private function _has_conflict_with_uri($module_uri)
+	{
+
+log_message('error', print_r($module_uri, true));
+		// Get the pages
+		$this->load->model('url_model', '', TRUE);
+
+		$where = array(
+			'path' => $module_uri,
+			'active' => 1,
+			'type' => 'page',
+		);
+		$urls = $this->url_model->get_list($where);
+
+
+		if ( ! empty($urls))
+			return TRUE;
+
+		return FALSE;
+	}
+}

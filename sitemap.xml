@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+			    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	<url>
+		<loc>http://127.0.0.1/ionize/en/about-ionize-cms</loc>
+		<lastmod>2012-12-06T16:27:42+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/en/contact</loc>
+		<lastmod>2012-12-21T14:34:59+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/en/blog</loc>
+		<lastmod>2012-12-21T14:07:43+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/en/services</loc>
+		<lastmod>2012-12-21T16:53:44+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/en/my-account</loc>
+		<lastmod>2012-12-22T10:53:57+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/</loc>
+		<lastmod>2014-01-02T11:28:58+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/tw/about-ionize-cms</loc>
+		<lastmod>2012-12-06T16:27:42+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/tw/contact</loc>
+		<lastmod>2012-12-21T14:34:59+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/tw/blog</loc>
+		<lastmod>2012-12-21T14:07:43+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/tw/services</loc>
+		<lastmod>2012-12-21T16:53:44+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/tw/my-account</loc>
+		<lastmod>2012-12-22T10:53:57+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+	<url>
+		<loc>http://127.0.0.1/ionize/tw/</loc>
+		<lastmod>2014-01-02T11:28:58+08:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.5</priority>
+	</url>
+
+</urlset>

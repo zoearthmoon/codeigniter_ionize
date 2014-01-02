@@ -1,0 +1,56 @@
+RewriteEngine On
+
+# RewriteBase
+# RewriteBase /
+
+# Only needed for some hosts, if the front returns 403.
+# Options +FollowSymlinks
+
+# Memory Limit
+# php_value memory_limit 256M
+# php_value max_execution_time 18000
+
+# Disable Hotlinking
+# Replace "domain.tld" with your domain name
+# Don't forget to add a picture "thepic.gif" on your server 
+# RewriteCond %{HTTP_REFERER} !^http://(.+\.)?domain\.tld/ [NC]
+# RewriteCond %{HTTP_REFERER} !^$
+# Solution 1 : Displays another picture from an URL
+# RewriteRule .*\.(jpe?g|gif|bmp|png)$ http://www.domain.tld/thepic.gif [L]
+# Solution 2 : Displays a 403 forbidden
+# RewriteRule .*\.(jpe?g|gif|bmp|png)$ - [F]
+
+# Redirect domain.com to www.domain.com
+# RewriteCond %{HTTP_HOST} !^www\.domain\.tld$ [NC]
+# RewriteRule ^(.*)$ http://www.domain.tld/$1 [QSA,L,R=301]
+
+# Redirect www.domain.com to domain.com
+# RewriteCond %{HTTP_HOST} !^domain.com$ [NC]
+# RewriteRule ^(.*)$ http://domain.com/$1 [L,R=301]
+
+# Disallow .svn access if you're using SVN
+# RedirectMatch 404 /\\.svn(/.*|$)
+
+# Uncomment these lines to display the off.html page to other IP than the one bellow
+# RewriteCond %{REMOTE_ADDR} !^127.0.0.1$
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*) off.html
+
+# DO NOT MODIFY ANY FOLLOWING LINE
+
+# 
+# Ionize Rules
+#
+# If Ionize resized outside the public folder, keep modules asset availability
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(modules)/([a-zA-Z0-9-]+)/(assets)/(.*)$ ../$1/$2/$3/$4
+
+
+# Keep these lines even in maintenance mode, to have an access to the website
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(application|modules|plugins|system|themes) index.php/$1 [L]
