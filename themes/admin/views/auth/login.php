@@ -81,8 +81,11 @@
 		<div id="loginWindow" class=" clearfix">
 
 			<div id="logo"></div>
+            
 
-			<div id="version"><?php echo $this->config->item('version'); ?> - Ionize CMS - MIT licence</div>
+			<div id="version">
+            <span>Zoearth Develop</span>
+            <?php echo $this->config->item('version'); ?> - Ionize CMS - MIT licence</div>
 
 			<?php if(validation_errors() OR isset($this->login_errors)):?>
 				<div class="error">
