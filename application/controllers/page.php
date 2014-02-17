@@ -1,19 +1,6 @@
 <?php
 /**
- * Ionize
- *
- * @package		Ionize
- * @author		Ionize Dev Team
- * @license		http://doc.ionizecms.com/en/basic-infos/license-agreement
- * @link		http://ionizecms.com
- * @since		Version 0.9.0
- *
- */
-
-/**
- * Default Ionize Controller
- * Displays all pages
- *
+ * @zoearth
  */
 
 class Page extends Base_Controller
@@ -21,10 +8,17 @@ class Page extends Base_Controller
 	public function index()
 	{
 		// Init the Page TagManager
-		TagManager_Page::init();
+		//TagManager_Page::init();
+		
+		$this->load->database();
+
+		$data['articles'] = $this->db->select()->from('article')->get();
+
+		// Included view loading
+		$this->template['content'] = $this->load->view('page_home', $data, true);
+		
+		print_r($this->template);
+		// Template view
+		//Theme::output('template', $this->template);
 	}
 }
-
-
-/* End of file page.php */
-/* Location: ./application/controllers/page.php */
