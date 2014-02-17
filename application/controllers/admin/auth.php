@@ -110,10 +110,11 @@ class Auth extends My_Admin
 				$this->response();
 				*/
 			}
-			else if ( ! in_array($uri_lang, Settings::get('displayed_admin_languages')) OR $uri_lang != $default_admin_lang)
-			{
-				redirect(base_url().$default_admin_lang.'/'.config_item('admin_url').'/auth/login');
-			}
+			//20140217 zoearth 找不到 displayed_admin_languages 設定的地方 故修正
+			//else if ( ! in_array($uri_lang, Settings::get('displayed_admin_languages')) OR $uri_lang != $default_admin_lang)
+			//{
+			//	redirect(base_url().$default_admin_lang.'/'.config_item('admin_url').'/auth/login');
+			//}
 		}
 
 		$this->output('auth/login');

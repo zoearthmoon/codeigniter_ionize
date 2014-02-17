@@ -89,8 +89,7 @@ $config['url_suffix'] = '';
 |
 */
 
-$config['language']	= 'en';
-
+$config['language']	= 'zht';
 /*
 |--------------------------------------------------------------------------
 | Default Character Set
