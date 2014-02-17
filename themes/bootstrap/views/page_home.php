@@ -31,12 +31,13 @@
 
 	<div class="container">
 
+        <ion:tree_navigation parent_page="2" articles="TRUE" tag="ul" class="nav" active_class="active" />
+	
 		<!-- Page title -->
         <ion:page:title tag="h1"/>
 
         <!-- Page's subtitle -->
         <ion:page:subtitle tag="h2"/>
-
 
         <!-- Page : Current -->
 		<ion:page>

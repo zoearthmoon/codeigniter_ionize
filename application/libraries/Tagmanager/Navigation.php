@@ -427,6 +427,17 @@ class TagManager_Navigation extends TagManager
 			}
 		}
 
+		//20140217 zoearth parent_page
+		$parent_page_id = $tag->getAttribute('parent_page',0);
+		
+		if ($parent_page_id > 0 )
+		{
+		    $parent_page = array(
+		            'id_page' => $parent_page_id,
+		            'id_parent' => $parent_page_id
+		    );		    
+		}
+
 		// Find out the wished parent page 
 		while ($page_level >= $from_level && $from_level > 0)
 		{
@@ -484,13 +495,25 @@ class TagManager_Navigation extends TagManager
 				// TODO : Change for future "Articles" lib call
 				$tag->set('page', $p);
 
+				//print_r($p);
+
 				$articles = TagManager_Article::get_articles($tag);
 
 				// Set active article
+				
+				//print_r($articles);
+				//zoearth 修正子選單路徑問題
+				foreach($articles as $akey => $a)
+				{
+				    $articles[$akey]['url'] = $p['path'].'/'.$articles[$akey]['url'];
+				}
 				if ( ! is_null($id_active_article))
 				{
 					foreach($articles as $akey => $a)
 					{
+					    
+					    
+					    $articles[$akey]['url'] = $p['path'].$articles[$akey]['url'];
 						if ($a['id_article'] == $id_active_article)
 						{
 							$articles[$akey]['active_class'] = $active_class;
