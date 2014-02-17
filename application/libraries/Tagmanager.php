@@ -627,9 +627,9 @@ class TagManager
 
 			if (User()->logged_in() && Authority::can('access', 'admin') && Settings::get('display_connected_label') == '1')
 			{
-				$injected_html = self::$ci->load->view('core/logged_as_editor', array(), TRUE);
-
-				$parsed = str_replace('</body>', $injected_html, $parsed);
+			    //20140217 zoearth 顯示這個好像沒用
+				//$injected_html = self::$ci->load->view('core/logged_as_editor', array(), TRUE);
+				//$parsed = str_replace('</body>', $injected_html, $parsed);
 			}
 		}
 
