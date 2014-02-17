@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="<ion:current_lang />">
 <head>
-
 	<title><ion:meta_title /> | <ion:site_title /></title>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="description" content="<ion:meta_description />" />
 	<meta name="keywords" content="<ion:meta_keywords />" />
-	
 </head>
 
 <body>
@@ -17,39 +14,29 @@
     <li><a href="<ion:language:url />"><ion:language:name /></a></li>
 </ion:languages>
 
-
 <!-- Navigation -->
 <ion:navigation level="0" tag="ul" class="navigation" active_class="active" />
 
 <!-- Page title -->
 <ion:page:title tag="h2" />
 
-
 <!-- Articles -->
 <div id="content">
-
     <ion:page>
-
         <ion:articles>
-
+            title-start<br>
+            <a href="<ion:article:url />">
             <ion:article:title />
-
+            </a>
+            title-end<br>
             <ion:article:content />
-
             <!-- Articles linked pictures -->
             <ion:article:medias type="picture">
-
                 <img src="<ion:media:src />" />
-
             </ion:article:medias>
-
-
 		</ion:articles>
-
     </ion:page>
-
 </div>
-
 
 </body>
 </html>

@@ -149,6 +149,7 @@ class TagManager_Page extends TagManager
 
 		$uri = self::$ci->uri->uri_string();
 
+		//取得資料
 		// Ignore the page named 'page' and get the home page
 		if ($uri == '')
 		{
@@ -164,14 +165,42 @@ class TagManager_Page extends TagManager
 			{
 				// Asked entity : Page or article
 				$entity = self::get_entity();
-
+				
+				$Url_DB = new Url_model();
+				//echo $uri;
+				$urls = $Url_DB->get_by_url($uri,Settings::get_lang());
+				print_r($urls);
+				/*
+				/home/userfriendly-urlArray
+				(
+				        [id_url] => 724
+				        [id_entity] => 13
+				        [type] => article
+				        [canonical] => 1
+				        [active] => 1
+				        [lang] => zht
+				        [path] => home/userfriendly-url
+				        [path_ids] => 2/13
+				        [full_path_ids] => 2/13
+				        [creation_date] => 2014-02-17 03:24:10
+				)
+				*/
+				if (!$entity['type'])
+				{
+				    $entity['type'] = $urls['type'];
+				}
 				// Article
 				if ( ! empty($entity['type']) && $entity['type'] == 'article')
 				{
-					$paths = explode('/', $entity['path_ids']);
-					$id_page = $paths[count($paths)-2];
-					
-					$page = self::get_page_by_id($id_page);
+					//$paths = explode('/', $entity['path_ids']);
+				    //$entity['path_ids'] = $urls['id_entity'];
+				    //$paths = explode('/', $urls['path']);
+					//$id_page = $paths[count($paths)-2];
+					//print_r($id_page);
+					//$page = self::get_page_by_id($id_page);
+					echo $urls['id_entity'].'---DDD';
+				    $page = self::get_page_by_id($urls['id_entity']);
+				    print_r($page);
 				}
 
 				// Special URI : category, archive, pagination
