@@ -227,8 +227,11 @@ MUI.Canvas = Object.append((MUI.Canvas || {}), {
 	circle: function(ctx, x, y, diameter, rgb, a){
 		ctx.beginPath();
 		ctx.arc(x, y, diameter, 0, Math.PI * 2, true);
-		ctx.fillStyle = 'rgba(' + rgb.join(',') + ',' + a + ')';
-		ctx.fill();
+        if (rgb)
+        {
+            ctx.fillStyle = 'rgba(' + rgb.join(',') + ',' + a + ')';
+            ctx.fill();
+        }
 	},
 
 	_drawBodyRoundedRect: function(ctx, x, y, width, height, radius, rgb){

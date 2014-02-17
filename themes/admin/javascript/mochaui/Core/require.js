@@ -169,6 +169,7 @@ Object.append(Asset, {
 	},
 
 	getCSSRule: function(selector){
+    /*
 		for (var ii = 0; ii < document.styleSheets.length; ii++){
 			var mySheet = document.styleSheets[ii];
 			var myRules = mySheet.cssRules ? mySheet.cssRules : mySheet.rules;
@@ -184,5 +185,6 @@ Object.append(Asset, {
 			}
 		}
 		return false;
+        */
 	}
 });
