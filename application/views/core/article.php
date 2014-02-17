@@ -1,6 +1,9 @@
 <div class="article">
 
-	<ion:title tag="h3" />
+    <a href="<ion:url />">
+	    <ion:title tag="h3" />
+	</a>
+	
 	
 	<!-- Formatted date -->
  	<div class="date">

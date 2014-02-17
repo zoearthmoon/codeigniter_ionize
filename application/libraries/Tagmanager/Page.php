@@ -72,6 +72,8 @@ class TagManager_Page extends TagManager
 		self::register('pages', Pages::get_pages());
 		self::register('page', self::get_current_page());
 
+		//print_r(Pages::get_pages());
+		
 		// Current page
 		$page = self::registry('page');
 
@@ -117,17 +119,34 @@ class TagManager_Page extends TagManager
 
 		// Can we get one article from the URL ?
 		$entity = self::get_entity();
+		
+		//print_r($entity);
+		//$page['view'] = 'page';
+		//$page['view_single'] = 'page_blog_post';
+		
 		if ( $entity['type'] == 'article')
 		{
 			$article = self::$ci->article_model->get_by_id($entity['id_entity'], Settings::get_lang());
 			$articles = array($article);
 			TagManager_Article::init_articles_urls($articles);
 			$article = $articles[0];
+
+			if ( ! empty($article))
+			{
+			    $page['view'] = 'page_blog';
+			    $page['view_single'] = 'page_blog_post';
+			    self::register('article', $article);
+			}
+			else
+			{
+			    //找不到文章則404
+			    $page = self::get_page_by_code('404');
+			    self::set_400_output(404);
+			}
 		}
-
-		if ( ! empty($article))
-			self::register('article', $article);
-
+		
+		//print_r($page);
+		
 		self::$view = self::_get_page_view($page);
 
 		self::render();
@@ -149,6 +168,7 @@ class TagManager_Page extends TagManager
 
 		$uri = self::$ci->uri->uri_string();
 
+		//取得資料
 		// Ignore the page named 'page' and get the home page
 		if ($uri == '')
 		{
@@ -164,14 +184,36 @@ class TagManager_Page extends TagManager
 			{
 				// Asked entity : Page or article
 				$entity = self::get_entity();
-
+				
+				$Url_DB = new Url_model();
+				//echo $uri;
+				$urls = $Url_DB->get_by_url($uri,Settings::get_lang());
+				//print_r($urls);
+				/*
+				/home/userfriendly-urlArray
+				(
+				        [id_url] => 724
+				        [id_entity] => 13
+				        [type] => article
+				        [canonical] => 1
+				        [active] => 1
+				        [lang] => zht
+				        [path] => home/userfriendly-url
+				        [path_ids] => 2/13
+				        [full_path_ids] => 2/13
+				        [creation_date] => 2014-02-17 03:24:10
+				)
+				*/
+				if (!$entity['type'])
+				{
+				    $entity['type'] = $urls['type'];
+				}
 				// Article
 				if ( ! empty($entity['type']) && $entity['type'] == 'article')
 				{
-					$paths = explode('/', $entity['path_ids']);
-					$id_page = $paths[count($paths)-2];
-					
-					$page = self::get_page_by_id($id_page);
+				    //20140217 zoearth 母分類
+				    $pcat = explode('/',$urls['path_ids']);
+				    $page = self::get_page_by_id($pcat[0]);
 				}
 
 				// Special URI : category, archive, pagination
@@ -361,6 +403,7 @@ class TagManager_Page extends TagManager
 	 */
 	public static function get_page_by_id($id_page)
 	{
+	    
 		foreach(self::registry('pages') as $p)
 		{
 			if ($p['id_page'] == $id_page)
@@ -368,6 +411,7 @@ class TagManager_Page extends TagManager
 		}
 
 		return array();
+		
 	}
 
 
@@ -948,7 +992,7 @@ class TagManager_Page extends TagManager
 			$view = ($page['view_single'] != FALSE) ? $page['view_single'] : $page['view'];
 		else
 			$view = $page['view'];
-
+		
 		$view_path = Theme::get_theme_path().'views/'.$view.EXT;
 
 		// Return the Ionize core view
