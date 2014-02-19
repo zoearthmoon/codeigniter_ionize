@@ -1,0 +1,184 @@
+/*
+
+Ionize Tree CSS
+
+Copyright:
+	Copyright (c) 2009/2011 Ionize Dev Team.
+	
+License:
+	MIT-style license.
+
+*/
+
+.treeContainer{
+	position: relative;
+}
+
+h3.treetitle {
+	margin-right:15px;
+	position: relative;
+	border-radius: 10px;
+	padding:3px 5px;
+	margin-left:-4px;
+	margin-bottom: 5px;
+	border:none;
+}
+.treetitle .action {
+	display:none;
+	position: absolute;
+	padding-top:1px;
+	right:5px;
+	top:2px;
+}
+.treetitle:hover .action {
+	display:block;
+}
+.treetitle:hover {
+	background-color: #e1e3e4;
+}
+.tree {
+	font-size: 11px;
+	line-height: 16px;
+	margin: 0 12px 10px 0;
+	overflow: hidden;
+	position: relative;
+}
+.tree ul {
+	margin: 0;
+	display:block;
+}
+.tree li {
+	width:100%;
+	min-height:18px;
+	line-height: 18px;
+	min-width:200px;
+	clear:both;
+	list-style-type: none;
+	white-space: nowrap;
+	position: relative;
+	padding:1px 0px;
+	margin:-1px 0;
+	-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+}
+.tree li.highlight {
+	background: url(../images/bg-gray-medium.png);
+}
+.tree li.highlight .action{
+	background: url(../images/bg-gray-medium.png);
+}
+.tree li a {
+	text-decoration: none;
+}
+.tree li a.title {
+	display:block;
+	height: 18px;
+}
+h3.treetitle .locked:after,
+.tree li .tree-img.no-edit:after,
+.tree li .tree-img.locked:after {
+	content: "\00a0";
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	background: url(../images/icons_16.png) no-repeat;
+	right:-4px;
+	top:-4px;
+}
+h3.treetitle .locked:after{
+	right: auto;
+	top:-1px;
+}
+
+.tree li .tree-img.no-edit:after {background-position: 0 -128px;}
+.tree li .tree-img.locked:after,
+h3.treetitle .locked:after{
+	background-position: -16px -128px;
+}
+
+.tree li img {
+	vertical-align: middle;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	border:none;
+}
+.tree li .action{
+	position: absolute;
+	right: 0;
+	top:2px;
+	height:18px;
+	-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+	z-index: 3;
+}
+.tree li .icon{
+	float:right;
+	width:16px;
+	height:16px;
+	padding-right: 0;
+	margin-left: 5px;
+}
+.tree li .icon a{
+	width:16px;
+	height:16px;
+	display:block;
+}
+.tree li label {
+	margin:0;
+}
+/* Tree nodes */
+.tree-img {
+	float:left;
+	height:16px;
+	width:16px;
+	margin-top:1px;
+    background:transparent url(../images/icons_16.png) repeat scroll;
+	position: relative;
+}
+.tree-img.line { background-position: 0 0; } 				/* Standard tree line */
+.tree-img.line.node { background-position: 0 0; } 		/* Line with one node after */
+.tree-img.line.last { background-position: 0 0; } 		/* Last element line */
+.tree-img.line.empty { background-position: 0 0; } 		/* Empty line (spacer) */
+.tree-img.plus { background-position: -176px 0; } 			/* Plus icon */
+.tree-img.plus.first { background-position: -176px 0; }
+.tree-img.plus.last { background-position: -176px 0; }
+.tree-img.minus { background-position: -192px 0; } 			/* Minus icon */
+.tree-img.minus.first { background-position: -192px 0; }
+.tree-img.minus.last { background-position: -192px 0; }
+
+.tree-img.folder { background-position: 0 -16px; margin-right:5px;} 			/* Closed folder */
+.tree-img.folder.open { background-position: -16px -16px; } 		/* Opened folder */
+.tree-img.folder.home { background-position: -64px -16px; } 		/* Closed home folder */
+.tree-img.folder.home.open { background-position: -80px -16px; } 		/* Closed home folder */
+.tree-img.folder.hidden { background-position: -32px -16px; margin-right:5px;} 			/* Closed folder hidden in nav */
+
+.tree-img.folder.open.hidden { background-position: -48px -16px; margin-right:5px;} 			/* Closed folder hidden in nav */
+.tree-img.folder.home.hidden { background-position: -96px -16px; margin-right:5px;}
+.tree-img.folder.home.open.hidden { background-position: -112px -16px; margin-right:5px;}
+
+.tree-img.file { background-position: -160px -16px;  margin-right:5px;} 			/* File */
+.tree-img.sticky { background-position: -144px -16px;  margin-right:5px;} 			/* File */
+.tree-img.filelink { background-position: -176px -16px;  margin-right:5px;} 			/* Link to File */
+.tree-img.folderlink { background-position: -378px 50%;  margin-right:5px;} 			/* Link to Folder */
+.tree-img.file.link { background-position: -192px -16px;  margin-right:5px;} 			/* Link to ... */
+.tree-img.sticky.link { background-position: -176px -16px;  margin-right:5px;} 			/* Link to ... */
+
+/* Last file child node line  */
+.tree li.file:last-child div.node { background-position: 0 0; }
+
+/* First root folder plus / minus icons */
+.tree > li.folder:first-child > div.plus:first-child{ background-position: -176px 0;}
+.tree > li.folder:first-child > div.minus:first-child{ background-position: -192px 0;}
+.tree > li.folder:last-child > div.plus:first-child{ background-position: -176px 0;}
+.tree > li.folder:last-child > div.minus:first-child{ background-position: -192px 0;}
+
+/* last root folder first line empty */
+.tree > li.folder:last-child li div:first-child{ background-position: -0 0;}
+
+.dragtreeli .action {
+	display:none;
+}
+
+#splitPanel_sideColumn .tree,
+#maincolumn .tree {
+	margin:0;
+}
