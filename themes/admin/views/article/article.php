@@ -246,7 +246,6 @@ if ($tracker_title == '')
 						<li class="tab_article<?php if($language['def'] == '1') :?> dl<?php endif ;?>" rel="<?php echo $language['lang']; ?>"><a><?php echo ucfirst($language['name']); ?></a></li>
 					<?php endforeach ;?>
 
-					<!-- 20140219 zoearth 取消其他TAB功能
 					<?php if(Authority::can('access', 'admin/article/media/file')) :?>
     					<li class="right<?php if( empty($id_article)) :?> inactive<?php endif ;?>" id="fileTab"><a><?php echo lang('ionize_label_files'); ?></a></li>
 					<?php endif;?>
@@ -259,7 +258,6 @@ if ($tracker_title == '')
 					<?php if(Authority::can('access', 'admin/article/media/picture')) :?>
 	                    <li class="right<?php if( empty($id_article)) :?> inactive<?php endif ;?>" id="pictureTab"><a><?php echo lang('ionize_label_pictures'); ?></a></li>
 					<?php endif;?>
-					-->
 				</ul>
 				<div class="clear"></div>
 			
