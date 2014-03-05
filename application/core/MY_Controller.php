@@ -630,8 +630,10 @@ class MY_Admin extends MY_Controller
 		$this->output->enable_profiler(FALSE);
 
 		// Set the admin theme as current theme
-		Theme::set_theme('admin');
-
+		//Theme::set_theme('admin');
+		//20140301 zoearth
+		Theme::set_theme(Settings::get('theme_admin'));
+		
 		Settings::set('admin_url', config_item('admin_url'));
 
 		// Set admin lang codes array
