@@ -632,7 +632,18 @@ class MY_Admin extends MY_Controller
 		// Set the admin theme as current theme
 		//Theme::set_theme('admin');
 		//20140301 zoearth
-		Theme::set_theme(Settings::get('theme_admin'));
+		//Theme::set_theme(Settings::get('theme_admin'));
+		
+		$username = User()->get('username');
+		if ($username == 'admin')
+		{
+		    Theme::set_theme('admin');
+		}
+		else
+		{
+		    Theme::set_theme(Settings::get('theme_admin'));
+		}
+		
 		
 		Settings::set('admin_url', config_item('admin_url'));
 
