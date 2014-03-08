@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 產生日期: 2014 年 02 月 18 日 02:03
+-- 產生日期: 2014 年 03 月 06 日 16:14
 -- 伺服器版本: 5.6.12-log
 -- PHP 版本: 5.4.16
 
@@ -96,7 +96,7 @@ INSERT INTO `article` (`id_article`, `name`, `author`, `updater`, `created`, `pu
 (8, 'article-4', 'demo', 'demo', '2012-11-17 13:59:25', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2012-12-21 15:52:46', '0000-00-00 00:00:00', 1, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
 (9, 'article-5', 'demo', 'demo', '2012-11-17 14:10:38', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2012-12-21 15:52:52', '0000-00-00 00:00:00', 1, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
 (10, 'article-6', 'demo', 'demo', '2012-11-17 14:17:28', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2012-12-21 15:52:58', '0000-00-00 00:00:00', 1, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
-(11, 'easy-edition', 'demo', 'zoearth', '2012-11-21 10:44:50', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-02-17 07:59:28', '0000-00-00 00:00:00', 0, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
+(11, 'easy-edition', 'demo', 'zoearth', '2012-11-21 10:44:50', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-02-19 01:31:18', '0000-00-00 00:00:00', 0, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
 (12, 'multilingual', 'demo', 'zoearth', '2012-11-21 10:46:28', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-02-17 03:22:10', '0000-00-00 00:00:00', 0, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
 (13, 'userfriendly', 'demo', 'zoearth', '2012-11-21 10:46:50', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-02-17 03:48:55', '0000-00-00 00:00:00', 0, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
 (14, 'template-system', 'demo', 'zoearth', '2012-11-21 10:47:12', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2014-02-17 06:49:23', '0000-00-00 00:00:00', 0, NULL, '0', '0', '0000-00-00 00:00:00', 0, 1),
@@ -200,7 +200,7 @@ INSERT INTO `article_lang` (`id_article`, `lang`, `url`, `title`, `subtitle`, `m
 (10, 'en', 'article-6', 'Send mail to your friends !', '', '', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p><p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam. est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p><p>Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>', '', '', 1),
 (10, 'zht', 'article-6', NULL, NULL, NULL, NULL, NULL, NULL, 1),
 (11, 'en', 'easy-edition', 'Easy edition', '', '', '<p>Copy / paste content from any word processing software. Inline links are automatically converted to hyperlinks. Emails are safely encoded to avoid spam.</p>', '', '', 1),
-(11, 'zht', 'easy-edition', 'easy-edition', 'easy-edition', 'easy-edition', '<p>easy-editioneasy-editioneasy-editioneasy-editioneasy-editioneasy-edition</p>\n<p>easy-editioneasy-editioneasy-editioneasy-editioneasy-editioneasy-editioneasy-edition</p>\n<p>easy-editioneasy-editioneasy-editioneasy-editioneasy-edition</p>', '', '', 1),
+(11, 'zht', 'easy-edition', 'easy-editioneasy-editioneasy-editioneasy', 'easy-edition', 'easy-edition', '<p>easy-editioneasy-editioneasy-editioneasy-editioneasy-editioneasy-edition</p>\n<p>easy-editioneasy-editioneasy-editioneasy-editioneasy-editioneasy-editioneasy-edition</p>\n<p>easy-editioneasy-editioneasy-editioneasy-editioneasy-edition</p>', '', '', 1),
 (12, 'en', 'multilingual', 'Multilingual', '', '', '<p>You can create as much languages as you need for your website. Every content can be translated : posts, static elements in templates, media data, etc.</p>', '', '', 1),
 (12, 'zht', 'multilingual', 'multilingual', 'multilingual', 'multilingual', 'multilingual', '', '', 1),
 (13, 'en', 'userfriendly', 'Userfriendly', '', '', '<p>Your website structure is logical. Managing elements such as pages, articles or medias is easily done by drag''n''drop!</p>', '', '', 1),
@@ -603,6 +603,13 @@ CREATE TABLE IF NOT EXISTS `login_tracker` (
   PRIMARY KEY (`ip_address`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- 轉存資料表中的資料 `login_tracker`
+--
+
+INSERT INTO `login_tracker` (`ip_address`, `first_time`, `failures`) VALUES
+('127.0.0.1', 1394121540, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -847,12 +854,12 @@ INSERT INTO `page_article` (`id_page`, `id_article`, `online`, `view`, `ordering
 (4, 24, 1, NULL, 2, 4, '', '', '', 1),
 (4, 26, 1, NULL, 3, 4, '', '', '', 1),
 (4, 29, 1, NULL, 1, NULL, '', '', '', 1),
-(6, 5, 1, NULL, 2, NULL, '', '', '', 1),
-(6, 6, 1, NULL, 3, NULL, '', '', '', 1),
-(6, 7, 1, NULL, 4, NULL, '', '', '', 1),
-(6, 8, 1, NULL, 5, NULL, '', '', '', 1),
-(6, 9, 1, NULL, 6, NULL, '', '', '', 1),
-(6, 10, 1, NULL, 7, 0, '', '', '', 1),
+(6, 5, 1, NULL, 7, NULL, '', '', '', 1),
+(6, 6, 1, NULL, 2, NULL, '', '', '', 1),
+(6, 7, 1, NULL, 3, NULL, '', '', '', 1),
+(6, 8, 1, NULL, 4, NULL, '', '', '', 1),
+(6, 9, 1, NULL, 5, NULL, '', '', '', 1),
+(6, 10, 1, NULL, 6, 0, '', '', '', 1),
 (6, 17, 1, NULL, 1, NULL, '', '', '', 1),
 (8, 18, 1, NULL, 1, 4, '', '', '', 1),
 (8, 19, 1, NULL, 2, 4, '', '', '', 1),
@@ -1187,7 +1194,7 @@ INSERT INTO `setting` (`id_setting`, `name`, `content`, `lang`) VALUES
 (1, 'website_email', '', ''),
 (2, 'files_path', 'files', ''),
 (3, 'theme', 'bootstrap', ''),
-(4, 'theme_admin', 'admin', ''),
+(4, 'theme_admin', 'admin_zoearth', ''),
 (5, 'google_analytics', '', ''),
 (6, 'filemanager', 'mootools-filemanager', ''),
 (7, 'show_help_tips', '', ''),
@@ -1298,7 +1305,7 @@ CREATE TABLE IF NOT EXISTS `url` (
   KEY `idx_url_type` (`type`),
   KEY `idx_url_active` (`active`),
   KEY `idx_url_lang` (`lang`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=783 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=785 ;
 
 --
 -- 轉存資料表中的資料 `url`
@@ -1352,8 +1359,8 @@ INSERT INTO `url` (`id_url`, `id_entity`, `type`, `canonical`, `active`, `lang`,
 (732, 1, 'article', 1, 1, 'zht', '404/404', '1/1', '1/1', '2014-02-17 04:06:16'),
 (745, 6, 'page', 1, 1, 'zht', 'blog', '6', '6', '2014-02-17 05:49:22'),
 (746, 6, 'page', 1, 1, 'en', 'blog', '6', '6', '2014-02-17 05:49:22'),
-(747, 5, 'article', 1, 1, 'zht', 'blog/article-1', '6/5', '6/5', '2014-02-17 05:49:22'),
-(748, 5, 'article', 1, 1, 'en', 'blog/article-1', '6/5', '6/5', '2014-02-17 05:49:22'),
+(747, 5, 'article', 1, 0, 'zht', 'blog/article-1', '6/5', '6/5', '2014-02-17 05:49:22'),
+(748, 5, 'article', 1, 0, 'en', 'blog/article-1', '6/5', '6/5', '2014-02-17 05:49:22'),
 (749, 6, 'article', 1, 1, 'zht', 'blog/article-2', '6/6', '6/6', '2014-02-17 05:49:23'),
 (750, 6, 'article', 1, 1, 'en', 'blog/article-2', '6/6', '6/6', '2014-02-17 05:49:23'),
 (751, 7, 'article', 1, 1, 'zht', 'blog/article-3', '6/7', '6/7', '2014-02-17 05:49:23'),
@@ -1379,7 +1386,9 @@ INSERT INTO `url` (`id_url`, `id_entity`, `type`, `canonical`, `active`, `lang`,
 (779, 13, 'page', 1, 1, 'zht', 'home/bb', '2/13', '2/13', '2014-02-17 09:07:03'),
 (780, 13, 'page', 1, 1, 'en', 'home/bb', '2/13', '2/13', '2014-02-17 09:07:03'),
 (781, 11, 'article', 1, 1, 'zht', 'home/bb/easy-edition', '2/13/11', '2/13/11', '2014-02-17 09:07:03'),
-(782, 11, 'article', 1, 1, 'en', 'home/bb/easy-edition', '2/13/11', '2/13/11', '2014-02-17 09:07:03');
+(782, 11, 'article', 1, 1, 'en', 'home/bb/easy-edition', '2/13/11', '2/13/11', '2014-02-17 09:07:03'),
+(783, 5, 'article', 1, 1, 'zht', 'blog/article-1', '6/5', '6/5', '2014-02-18 02:13:36'),
+(784, 5, 'article', 1, 1, 'en', 'blog/article-1', '6/5', '6/5', '2014-02-18 02:13:36');
 
 -- --------------------------------------------------------
 
@@ -1404,14 +1413,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `username` (`username`),
   KEY `id_role` (`id_role`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 轉存資料表中的資料 `user`
 --
 
 INSERT INTO `user` (`id_user`, `id_role`, `join_date`, `last_visit`, `username`, `screen_name`, `firstname`, `lastname`, `birthdate`, `gender`, `password`, `email`, `salt`) VALUES
-(1, 1, '2014-01-02 02:36:26', '2014-02-17 17:59:44', 'zoearth', 'zoearth', NULL, NULL, NULL, NULL, '0gGTbcwi2k6/VCla', 'zoearthmoon@gmail.com', 'be4baeaeddc8f7bf');
+(1, 1, '2014-01-02 02:36:26', '2014-03-06 08:01:30', 'zoearth', 'zoearth', NULL, NULL, NULL, NULL, '0gGTbcwi2k6/VCla', 'zoearthmoon@gmail.com', 'be4baeaeddc8f7bf'),
+(2, 1, '2014-01-02 02:36:26', '2014-03-06 08:13:57', 'admin', 'admin', NULL, NULL, NULL, NULL, '+Yx9TlTne8+cRNqi', 'zoearthmoon@gmail.com', 'be4baeaeddc8f7bf');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
