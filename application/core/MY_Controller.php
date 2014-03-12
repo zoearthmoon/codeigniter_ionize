@@ -64,7 +64,7 @@ class MY_Controller extends CI_Controller
 
 		if ( ! $this->db->db_select())
 		{
-			$error =& load_class('Exceptions', 'core');
+			$error = load_class('Exceptions', 'core');
 			echo $error->show_error('Database Error', 'Unable to connect to the specified database : '. $this->db->database, 'error_db');
 			exit;
 		}
@@ -1065,7 +1065,7 @@ abstract class Module_Admin extends MY_Admin
 		$this->parent = $c;
 
 		// Set Module's config
-		$ci =& get_instance();
+		$ci = get_instance();
 		$config_items = Modules()->get_module_config($ci->uri->segment(3));
 
 		foreach($config_items as $item => $value)

@@ -43,7 +43,7 @@ class Settings_Model extends Base_model
 	 *
 	 * @return	The lang array
 	 */
-	function get_languages()
+	public function get_languages()
 	{
 		return $this->{$this->db_group}->from('lang')->order_by('ordering', 'ASC')->get()->result_array();
 	}
@@ -58,7 +58,7 @@ class Settings_Model extends Base_model
 	 *
 	 * @return	The settings array
 	 */
-	function get_settings()
+	public function get_settings()
 	{
 		$this->{$this->db_group}->where("(lang is null or lang='')");
 		$query = $this->{$this->db_group}->get($this->table);

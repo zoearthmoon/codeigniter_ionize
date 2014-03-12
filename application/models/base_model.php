@@ -178,7 +178,7 @@ class Base_model extends CI_Model
 		}
 		self::$_inited = TRUE;
 
-		self::$ci =& get_instance();
+		self::$ci = get_instance();
 
 // Doesn't work with multiple DB
 //		$CI =& get_instance();
@@ -1207,7 +1207,7 @@ class Base_model extends CI_Model
 	 */
 	protected function set_elements_definition($lang)
 	{
-		$CI =& get_instance();
+		$CI = get_instance();
 
 		// Loads the model if it isn't loaded
 		if (!isset($CI->element_definition_model))
