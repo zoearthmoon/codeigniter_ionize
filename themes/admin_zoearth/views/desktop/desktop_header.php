@@ -1,5 +1,4 @@
 <div id="desktopBar">
-
 <?php
 	$lang_url = base_url().Settings::get_lang('current').'/'.Settings::get('admin_url');
 ?>
@@ -9,13 +8,13 @@
 				<?php echo strtoupper(ENVIRONMENT); ?>
 			</span>
 	</div>
-
 <?php endif; ?>
 
 <a id="logoAnchor" class="navlink" href="dashboard"></a>
 <div class="desktopTitlebarWrapper">
 	<div class="desktopTitlebar">
-		<h1 class="applicationTitle">ionize <?php echo($this->config->item('version')) ;?></h1>
+		<!-- <h1 class="applicationTitle">ionize <?php echo($this->config->item('version')) ;?></h1> -->
+		<h1><?php echo Settings::get('site_title')?></h1>
 		<div class="topNav">
 			<ul class="menu-right">
 				<li><?php echo lang('ionize_logged_as'); ?> : <?php echo User()->get('screen_name'); ?> (<?php echo User()->get('role_name'); ?>)</li>

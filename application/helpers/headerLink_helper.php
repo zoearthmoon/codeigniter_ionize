@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class MY_headerLinkHelper
+class headerLink
 {
     public static function show()
     {
@@ -187,5 +187,28 @@ class MY_headerLinkHelper
         // if(Authority::can('access', 'admin/menu'))
         //echo lang('ionize_title_menu');
         
+        $output = array();
+        foreach ($pmenus as $key=>$v)
+        {
+            $output[$key]['title'] = $v['name'];
+            //$output[$key]['menus']
+            if (count($v['menus']) > 0 )
+            {
+                foreach ($v['menus'] as $mk)
+                {
+                    if(Authority::can($menus[$mk]['action'], $menus[$mk]['controller']))
+                    {
+                        $output[$key]['menus'][$mk] = $menus[$mk];
+                        $output[$key]['menus'][$mk]['href'] = $output[$key]['menus'][$mk]['href']; 
+                        
+                    }
+                }
+            }
+            if (!(is_array($output[$key]['menus']) && count($output[$key]['menus']) > 0 ))
+            {
+                unset($output[$key]);
+            }
+        }
+        return $output;
     }
 }
