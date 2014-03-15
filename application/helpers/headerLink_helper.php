@@ -10,6 +10,7 @@ class headerLink
         
         //ionize_menu_content
         $pmenus[$p]['name']  = lang('ionize_menu_content');
+        $pmenus[$p]['icon']  = 'fa-bar-chart-o';
         $pmenus[$p]['menus'] = array(
                 'ionize_menu_menu',
                 'ionize_menu_page',
@@ -92,6 +93,7 @@ class headerLink
         
         //ionize_menu_modules
         $pmenus[$p]['name']  = lang('ionize_menu_modules');
+        $pmenus[$p]['icon']  = 'fa-bars';
         $pmenus[$p]['menus'] = array(
                 'ionize_menu_modules_admin',
                 );
@@ -105,6 +107,7 @@ class headerLink
         
         //ionize_menu_tools
         $pmenus[$p]['name']  = lang('ionize_menu_tools');
+        $pmenus[$p]['icon']  = 'fa-flag';
         $pmenus[$p]['menus'] = array(
                 'google_analytics',
                 'ionize_menu_system_check',
@@ -125,6 +128,7 @@ class headerLink
         
         //ionize_menu_settings
         $pmenus[$p]['name']  = lang('ionize_menu_settings');
+        $pmenus[$p]['icon']  = 'fa-gavel';
         $pmenus[$p]['menus'] = array(
                 'ionize_menu_ionize_settings',
                 'ionize_menu_languages',
@@ -173,6 +177,7 @@ class headerLink
         
         //ionize_menu_help 
         $pmenus[$p]['name']  = lang('ionize_menu_help');
+        $pmenus[$p]['icon']  = 'fa-info';
         $pmenus[$p]['menus'] = array(
                 'ionize_menu_about',
             );
@@ -191,6 +196,7 @@ class headerLink
         foreach ($pmenus as $key=>$v)
         {
             $output[$key]['title'] = $v['name'];
+            $output[$key]['icon'] = $v['icon'];
             //$output[$key]['menus']
             if (count($v['menus']) > 0 )
             {

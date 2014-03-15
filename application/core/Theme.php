@@ -156,8 +156,17 @@ class Theme {
 		$ci =  &get_instance();
 		
 		// Loads the view
-		$output = $ci->load->view($view, $data, true);
-		
+		//20140315 zoearth
+		if (Settings::isZoearthAdmin())
+		{
+		    $viewData['view'] = $view;
+		    $viewData['data'] = $data;
+		    $output = $ci->load->view('index', $viewData, true);
+		}
+		else
+		{
+		    $output = $ci->load->view($view, $data, true);
+		}
 		// Set character encoding
 		$this->output->set_header("Content-Type: text/html; charset=UTF-8");
 		

@@ -130,8 +130,12 @@ class MY_Controller extends CI_Controller
      */
     public function output($view)
     {
-		if ($this->uri->uri_string() != '/admin')
-			$this->xhr_protect();
+        //20140315 zoearth
+        if (!Settings::isZoearthAdmin())
+        {
+            if ($this->uri->uri_string() != '/admin')
+                $this->xhr_protect();            
+        }
 
     	// Unique ID, useful for DOM Element displayed in windows.
     	$this->template['UNIQ'] = (uniqid());

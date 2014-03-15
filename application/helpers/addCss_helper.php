@@ -26,14 +26,14 @@ class addCss
         //Theme style
         $addCss[] = 'css/AdminLTE.css';
         
-        //jQuery 2.0.2
-        $addJs[] = 'http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js';
+        //jQuery 2.1.0
+        $addJs[] = 'js/jquery-2.1.0.min.js';
         //jQuery UI 1.10.3
         $addJs[] = 'js/jquery-ui-1.10.3.min.js';
         //Bootstrap
         $addJs[] = 'js/bootstrap.min.js';
         //Morris.js charts
-        $addJs[] = '//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js';
+        $addJs[] = 'js/raphael-2.1.2.min.js';
         $addJs[] = 'js/plugins/morris/morris.min.js';
         //Sparkline
         $addJs[] = 'js/plugins/sparkline/jquery.sparkline.min.js';

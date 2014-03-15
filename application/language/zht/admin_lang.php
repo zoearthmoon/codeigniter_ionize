@@ -1,4 +1,8 @@
 <?php
+
+$lang['admin_hello'] = "Hello!!";
+
+
 $lang['button_delete_installer_done_admin'] = "完成！開啟管理者後臺";
 $lang['button_delete_installer_done_site'] = "完成！開啟網站";
 $lang['ionize_administration'] = "管理";

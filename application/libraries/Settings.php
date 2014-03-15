@@ -26,7 +26,7 @@
 
 class Settings
 {
-
+    
 	public static $settings = array();
 	
 	public static $online_languages = array();
@@ -44,6 +44,16 @@ class Settings
 
  */
 
+	public static function isZoearthAdmin()
+	{
+	    if (self::get('theme_admin') == 'admin_zoearth')
+	    {
+	        return TRUE;
+	    }
+	    return FALSE;
+	}
+	
+	
 	/**
 	 * Sets one setting
 	 *
