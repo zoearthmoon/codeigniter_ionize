@@ -159,9 +159,17 @@ class Theme {
 		//20140315 zoearth
 		if (Settings::isZoearthAdmin())
 		{
-		    $viewData['view'] = $view;
-		    $viewData['data'] = $data;
-		    $output = $ci->load->view('index', $viewData, true);
+		    //20140316 zoearth
+		    if ($view == 'auth/login')
+		    {
+		        $output = $ci->load->view($view, $data, true);		        
+		    }
+		    else
+		    {
+		        $viewData['view'] = $view;
+		        $viewData['data'] = $data;
+		        $output = $ci->load->view('index', $viewData, true);
+		    }
 		}
 		else
 		{
