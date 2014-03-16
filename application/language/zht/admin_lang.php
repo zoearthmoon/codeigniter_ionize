@@ -1,7 +1,22 @@
 <?php
 
 $lang['admin_hello'] = "Hello!!";
-
+$lang['validate_required'] = "必填";
+$lang['validate_remote'] = "請修正此欄位";
+$lang['validate_email'] = "請輸入正確的電子信箱";
+$lang['validate_url'] = "請輸入合法的URL";
+$lang['validate_date'] = "請輸入合法的日期";
+$lang['validate_dateISO'] = "請輸入合法的日期 (ISO)";
+$lang['validate_number'] = "請輸入數字";
+$lang['validate_digits'] = "請輸入整數";
+$lang['validate_creditcard'] = "請輸入合法的信用卡號碼";
+$lang['validate_equalTo'] = "請重複輸入一次";
+$lang['validate_maxlength'] = "請輸入長度不大於{0} 的字串";
+$lang['validate_minlength'] = "請輸入長度不小於 {0} 的字串";
+$lang['validate_rangelength'] = "請輸入長度介於 {0} 和 {1} 之間的字串";
+$lang['validate_range'] = "請輸入介於 {0} 和 {1} 之間的數值";
+$lang['validate_max'] = "請輸入不大於 {0} 的數值";
+$lang['validate_min'] = "請輸入不小於 {0} 的數值";
 
 $lang['button_delete_installer_done_admin'] = "完成！開啟管理者後臺";
 $lang['button_delete_installer_done_site'] = "完成！開啟網站";

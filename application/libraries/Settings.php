@@ -46,7 +46,7 @@ class Settings
 
 	public static function isZoearthAdmin()
 	{
-	    if (self::get('theme_admin') == 'admin_zoearth')
+	    if (Theme::get_theme() == 'admin_zoearth')
 	    {
 	        return TRUE;
 	    }
