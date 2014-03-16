@@ -34,7 +34,7 @@ class addCss
         $addJs[] = 'js/bootstrap.min.js';
         //Morris.js charts
         $addJs[] = 'js/raphael-2.1.2.min.js';
-        $addJs[] = 'js/plugins/morris/morris.min.js';
+        //$addJs[] = 'js/plugins/morris/morris.min.js';
         //Sparkline
         $addJs[] = 'js/plugins/sparkline/jquery.sparkline.min.js';
         //jvectormap
@@ -55,7 +55,10 @@ class addCss
         $addJs[] = 'js/AdminLTE/app.js';
         
         //AdminLTE dashboard demo (This is only for demo purposes)
-        $addJs[] = 'js/AdminLTE/dashboard.js';
+        //$addJs[] = 'js/AdminLTE/dashboard.js';
+        
+        //jquery.validate.1.11.1.min
+        $addJs[] = 'js/jquery.validate.1.11.1.min.js';
         
         $html = '';
         
