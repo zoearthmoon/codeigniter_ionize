@@ -28,7 +28,7 @@
                             <ul class="menu">
             					<?php foreach(Settings::get_online_languages() as $lang) :?>
                                     <li>
-                                        <a href="<?php echo base_url().$lang['lang']; ?>/<?php echo config_item('admin_url'); ?>">
+                                        <a href="<?php echo sayLink::show('lang',array('lang'=>$lang['lang'])); ?>">
                                             <div class="pull-left">
                                                 <img src="<?php echo theme_url(); ?>images/world_flags/flag_<?php echo $lang['lang']; ?>.gif" />
                                             </div>
@@ -88,7 +88,7 @@
                             <ul class="treeview-menu" >
                                 <?php foreach ($pmenus['menus'] as $menus):?>
                                 <li>
-                                    <a href="<?php echo $menus['href']?>">
+                                    <a href="<?php echo sayLink::say($menus['href'])?>">
                                         <i class="fa fa-angle-double-right"></i>
                                         <?php echo $menus['title'];?>
                                     </a>
