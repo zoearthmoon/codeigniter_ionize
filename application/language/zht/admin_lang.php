@@ -21,6 +21,13 @@ $lang['validate_min'] = "請輸入不小於 {0} 的數值";
 
 $lang['ionize_login_password_error'] = "帳號或密碼錯誤";
 
+$lang['add_new_menu'] = "新增選單";
+
+
+
+//add-----------------------------------------------------
+
+
 $lang['button_delete_installer_done_admin'] = "完成！開啟管理者後臺";
 $lang['button_delete_installer_done_site'] = "完成！開啟網站";
 $lang['ionize_administration'] = "管理";

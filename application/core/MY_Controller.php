@@ -629,11 +629,13 @@ class MY_Admin extends MY_Controller
         parent::__construct();
         
 		$this->load->helper('module_helper');
+		$this->load->helper('actionList_helper');//20140327 zoearth
 		$this->load->helper('headerLink_helper');//20140313 zoearth
 		$this->load->helper('addCss_helper');
 		$this->load->helper('sayLink_helper');
 		$this->load->helper('addScript_helper');
 		$this->load->helper('message_helper');
+		$this->load->helper('sayPathLink_helper');//20140327 zoearth
 		
 		// Redirect the not authorized user to the login panel. See /application/config/user.php
 		User()->restrict_type_redirect = array(

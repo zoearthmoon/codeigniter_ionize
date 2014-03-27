@@ -1,9 +1,13 @@
+<div class="row">
+    <div class="col-sm-3 col-md-offset-10">
+        <a class="btn btn-primary z0-add" href="<?php echo sayLink::say('menu/create')?>">
+            <i class="icon-pencil"></i><?php echo lang('add_new_menu')?>
+	    </a>
+    </div>
+</div>
+
 <div class="box-body">
-
-<h1 class="page-header" id="overview"><?php echo lang('ionize_menu_menu') ?></h1>
-
 <div id="maincolumn">
-    
 	<!-- Sortable UL -->
 	<ul id="menuContainer" class="sortable">
     <?php foreach($menus as $menu) :?>
