@@ -122,11 +122,9 @@ class Menu extends MY_admin
 	public function update()
 	{
 		$id = $this->input->post('id_menu');
-
 		if ($id)
 		{
 			$this->menu_model->update($id, $this->input->post());
-
 			if (Authority::can('access', 'admin/menu/permissions/backend'))
 			{
 				$resource = 'backend/menu/' . $id;
@@ -134,10 +132,17 @@ class Menu extends MY_admin
 			}
 		}
 
-		// UI update panels
-		$this->_update_panels();
-
-		$this->success(lang('ionize_message_menu_updated'));
+		if (Settings::isZoearthAdmin())
+		{
+		    $message = lang('ionize_message_menu_updated');
+		    $this->alert($message, sayLink::say('menu'));
+		}
+		else
+		{
+		    // UI update panels
+		    $this->_update_panels();
+		    $this->success(lang('ionize_message_menu_updated'));
+		}
 	}
 
 

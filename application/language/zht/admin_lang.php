@@ -18,6 +18,9 @@ $lang['validate_range'] = "請輸入介於 {0} 和 {1} 之間的數值";
 $lang['validate_max'] = "請輸入不大於 {0} 的數值";
 $lang['validate_min'] = "請輸入不小於 {0} 的數值";
 
+
+$lang['ionize_login_password_error'] = "帳號或密碼錯誤";
+
 $lang['button_delete_installer_done_admin'] = "完成！開啟管理者後臺";
 $lang['button_delete_installer_done_site'] = "完成！開啟網站";
 $lang['ionize_administration'] = "管理";

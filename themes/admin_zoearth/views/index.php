@@ -118,6 +118,7 @@
 
                 <!-- Main content -->
                 <section class="content">
+                <?php echo message::show();?>
                 <?php $this->load->view($view,$data);?>
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->

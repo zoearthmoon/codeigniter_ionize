@@ -53,6 +53,13 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
 
+		//20140326 zoearth 檢查是否有該action
+		if ($this->uri->segment(3) != '' && !method_exists($this,$this->uri->segment(3)))
+		{
+		    show_404('page');
+		    exit();
+		}
+		
 		// Check the database settings
 		if ($this->test_database_config() === FALSE)
 		{
@@ -620,12 +627,13 @@ class MY_Admin extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-
+        
 		$this->load->helper('module_helper');
 		$this->load->helper('headerLink_helper');//20140313 zoearth
 		$this->load->helper('addCss_helper');
 		$this->load->helper('sayLink_helper');
 		$this->load->helper('addScript_helper');
+		$this->load->helper('message_helper');
 		
 		// Redirect the not authorized user to the login panel. See /application/config/user.php
 		User()->restrict_type_redirect = array(
@@ -797,6 +805,13 @@ class MY_Admin extends MY_Controller
     }
 
 
+    public function alert($message,$path)
+    {
+		$this->template['message'] = $message;
+		$this->output('system/alert');
+        header('refresh:3;URL='.$path);
+    }
+    
 	// ------------------------------------------------------------------------
 
 
@@ -870,9 +885,17 @@ class MY_Admin extends MY_Controller
 			{
 				$data['id'] = $this->id;
 			}
-			echo json_encode($data);
 			
-			exit();
+			if (Settings::isZoearthAdmin())
+			{
+                message::$message = $data;//20140321 zoearth
+			}
+			else 
+			{
+			    echo json_encode($data);
+			    exit();
+			}
+
     	}
     }
 

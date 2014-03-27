@@ -15,7 +15,7 @@
         <div class="header">
         <?php echo Settings::get('site_title'); ?>
 		<?php if(validation_errors() OR isset($this->login_errors)):?>
-			<div class="error">
+			<div class="alert alert-danger">
 				<?php echo validation_errors(); ?>
 				<?php echo isset($this->login_errors) ? $this->form_validation->_error_prefix.$this->login_errors.$this->form_validation->_error_suffix : ''; ?>
 			</div>

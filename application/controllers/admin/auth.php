@@ -76,8 +76,15 @@ class Auth extends My_Admin
 
 				try
 				{
-					User()->login($_POST);
-					redirect(base_url().$uri_lang.'/'.config_item('admin_url').'/auth/login');
+					if (User()->login($_POST))
+					{
+					    redirect(base_url().$uri_lang.'/'.config_item('admin_url').'/auth/login');
+					}
+					else 
+					{
+					    $this->login_errors = lang('ionize_login_password_error');
+					}
+					
 				}
 				catch(Exception $e)
 				{

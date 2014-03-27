@@ -10,8 +10,8 @@
 		<?php $name = $menu['name']; $id = $menu['id_menu']; $title = $menu['title']; ?>
         <div id="menu_<?php echo $id; ?>" data-id="<?php echo $id; ?>" class="alert alert-success alert-dismissable">
             <i class="fa fa-check"></i>
-            <form id="formMenu<?php echo $id; ?>" name="formMenu<?php echo $id; ?>" method="post" data-id="<?php echo $id; ?>">
-            
+            <form id="formMenu<?php echo $id; ?>" action="<?php echo admin_url(); ?>menu/update" name="formMenu<?php echo $id; ?>" method="post" data-id="<?php echo $id; ?>">
+            <input type="hidden" name="id_menu" value="<?php echo $menu['id_menu'];?>">
 			<?php if($id > 2 && Authority::can('delete', 'admin/menu')) :?>
 			    <button data-id="<?php echo $id; ?>" aria-hidden="true" data-dismiss="alert" class="close" type="button" title="<?php echo lang('ionize_button_delete'); ?>" >×</button>
 			<?php endif ;?>
