@@ -23,10 +23,10 @@ class sayPathLink
         $html .= @$con[$controller]['title'];
         $html .= '<small>'.@$con[$controller]['action'][$action].'</small>';
         $html .= '</h1>';
-        $html .= '<ol class="breadcrumb">';
-        $html .= '<li><a href="'.base_url().'"><i class="fa fa-dashboard"></i> Home</a></li>';
-        $html .= '<li class="active">'.@$con[$controller]['title'].'</li>';
-        $html .= '</ol>';
+        //$html .= '<ol class="breadcrumb">';
+        //$html .= '<li><a href="'.base_url().'"><i class="fa fa-dashboard"></i> Home</a></li>';
+        //$html .= '<li class="active">'.@$con[$controller]['title'].'</li>';
+        //$html .= '</ol>';
         
         return $html;
     }

@@ -104,17 +104,9 @@
 
 
             <aside class="right-side">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <?php echo sayPathLink::show();?>
-                </section>
-
-                <!-- Main content -->
-                <section class="content">
                 <?php echo message::show();?>
                 <?php $this->load->view($view,$data);?>
-                </section><!-- /.content -->
-            </aside><!-- /.right-side -->
-        </div><!-- ./wrapper -->
+            </aside>
+        </div>
     </body>
 </html>
