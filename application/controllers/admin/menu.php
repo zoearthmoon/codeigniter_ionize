@@ -103,11 +103,11 @@ class Menu extends MY_admin
 			$this->_update_panels();
 
 			// Answer send
-			$this->success(lang('ionize_message_menu_saved'));
+			$this->success(lang('ionize_message_menu_saved'),NULL,'menu');
 		}
 		else
 		{
-			$this->error(lang('ionize_message_menu_not_saved'));
+			$this->error(lang('ionize_message_menu_not_saved'),NULL,'menu');
 		}
 	}
 
@@ -132,17 +132,9 @@ class Menu extends MY_admin
 			}
 		}
 
-		if (Settings::isZoearthAdmin())
-		{
-		    $message = lang('ionize_message_menu_updated');
-		    $this->alert($message, sayLink::say('menu'));
-		}
-		else
-		{
-		    // UI update panels
-		    $this->_update_panels();
-		    $this->success(lang('ionize_message_menu_updated'));
-		}
+	    // UI update panels
+	    $this->_update_panels();
+	    $this->success(lang('ionize_message_menu_updated'),NULL,'menu');
 	}
 
 
@@ -166,12 +158,12 @@ class Menu extends MY_admin
 			$this->_update_panels();
 
 			// Answer send
-			$this->success(lang('ionize_message_menu_ordered'));
+			$this->success(lang('ionize_message_menu_ordered'),NULL,'menu');
 		}
 		else 
 		{
 			// Answer send
-			$this->error(lang('ionize_message_operation_nok'));
+			$this->error(lang('ionize_message_operation_nok'),NULL,'menu');
 		}
 	}
 
@@ -194,12 +186,12 @@ class Menu extends MY_admin
 			$this->_update_panels();
 
 			// Answer send
-			$this->success(lang('ionize_message_menu_deleted'));
+			$this->success(lang('ionize_message_menu_deleted'),NULL,'menu');
 		}
 		else
 		{
 			// Answer send
-			$this->error(lang('ionize_message_menu_not_deleted'));			
+			$this->error(lang('ionize_message_menu_not_deleted'),NULL,'menu');			
 		}
 	}
 

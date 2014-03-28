@@ -1,6 +1,7 @@
-
-<h2 class="main tree" id="main-title"><?php echo lang('ionize_title_create_menu') ?></h2>
-
+<section class="content-header">
+    <?php echo sayPathLink::show();?>
+</section>
+<section class="content">
 <form name="menuForm" id="menuForm" method="post" action="<?php echo admin_url(); ?>menu/save">
 
 	<!-- Name -->
@@ -22,14 +23,8 @@
 			<input id="title" name="title" class="inputtext w140" type="text" value="" />
 		</dd>
 	</dl>
-
+    <div class="buttons">
+        <button type="submit" class="btn btn-default"><?php echo lang('ionize_button_save_close'); ?></button>
+    </div>
 </form>
-
-<!-- Save / Cancel buttons
-	 Must be named bSave[windows_id] where 'window_id' is the used ID for the window opening through ION.formWindow()
--->
-<div class="buttons">
-	<button id="bSavemenu" type="button" class="button yes right"><?php echo lang('ionize_button_save_close'); ?></button>
-	<button id="bCancelmenu"  type="button" class="button no right"><?php echo lang('ionize_button_cancel'); ?></button>
-</div>
-
+</section>

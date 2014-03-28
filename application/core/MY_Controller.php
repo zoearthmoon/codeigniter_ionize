@@ -774,17 +774,29 @@ class MY_Admin extends MY_Controller
 	 * @param	array		Additional data to put to the answer. Optional.
 	 *
 	 */
-    public function error($message, $addon_data = NULL)
+    public function error($message, $addon_data = NULL,$golink='')
     {
-    	$this->message_type = 'error';
-    	$this->message = $message;
-    	
-    	if ( !isset($this->redirect) && !empty($_SERVER['HTTP_REFERER']))
-    	{
-    		$this->redirect = $_SERVER['HTTP_REFERER'];
-    	}
-    	
-    	$this->response($addon_data);
+        if (Settings::isZoearthAdmin())
+        {
+            $option = array();
+            $option['addon_data'] = $addon_data;
+            $option['type'] = 'error';
+            $option['message'] = $message;
+            $option['link'] = sayLink::say($golink);
+            $this->alert($option);
+        }
+        else
+        {
+            $this->message_type = 'error';
+            $this->message = $message;
+             
+            if ( !isset($this->redirect) && !empty($_SERVER['HTTP_REFERER']))
+            {
+                $this->redirect = $_SERVER['HTTP_REFERER'];
+            }
+             
+            $this->response($addon_data);
+        }
     }
 
    
@@ -798,20 +810,38 @@ class MY_Admin extends MY_Controller
 	 * @param	array		Additional data to put to the answer. Optional.
 	 *
 	 */
-    public function success($message, $addon_data = NULL)
+    public function success($message, $addon_data = NULL,$golink='')
     {
-    	$this->message_type = 'success';
-    	$this->message = $message;
-    	
-    	$this->response($addon_data);
+        if (Settings::isZoearthAdmin())
+        {
+            $option = array();
+            $option['addon_data'] = $addon_data;
+            $option['type'] = 'success';
+            $option['message'] = $message;
+            $option['link'] = sayLink::say($golink);
+            $this->alert($option);
+        }
+        else
+        {
+            $this->message_type = 'success';
+            $this->message = $message;
+            $this->response($addon_data);
+        }
     }
 
 
-    public function alert($message,$path)
+    public function alert($option=array())
     {
-		$this->template['message'] = $message;
+        //20140328 zoearth
+        $this->template['addon_data'] = $option['addon_data'];
+		$this->template['type'] = $option['type'];
+		$this->template['message'] = $option['message'];
+		
 		$this->output('system/alert');
-        header('refresh:3;URL='.$path);
+		if ($option['type'] == 'success')
+		{
+		    header('refresh:3;URL='.$option['link']);
+		}
     }
     
 	// ------------------------------------------------------------------------
