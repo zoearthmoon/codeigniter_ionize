@@ -78,7 +78,7 @@
                     </div>
                     <ul class="sidebar-menu">
                         <?php foreach (headerLink::show() as $pmenus):?>
-                        <li class="treeview">
+                        <li class="treeview <?php echo ($pmenus['active'] ? 'active':'');?>">
                             <a href="#">
                                 <i class="fa <?php echo $pmenus['icon'];?>"></i>
                                 <span><?php echo $pmenus['title'];?></span>
@@ -87,7 +87,7 @@
                             <?php if (is_array($pmenus['menus']) && count($pmenus['menus']) > 0 ):?>
                             <ul class="treeview-menu" >
                                 <?php foreach ($pmenus['menus'] as $menus):?>
-                                <li>
+                                <li class="<?php echo ($menus['active'] ? 'active':'');?>">
                                     <a href="<?php echo sayLink::say($menus['href'])?>">
                                         <i class="fa fa-angle-double-right"></i>
                                         <?php echo $menus['title'];?>
