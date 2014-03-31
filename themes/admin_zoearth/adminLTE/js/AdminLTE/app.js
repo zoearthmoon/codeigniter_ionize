@@ -1,3 +1,36 @@
+/* *******************************************
+ * Zoearth Add Js Start
+ * ******************************************* */
+
+$(document).ready(function() {
+    $(".alertConfirm").bind('click',function(){
+        var title = $(this).attr('title');
+        var link = $(this).attr('link');
+        if (title != '' && link != '')
+        {
+            var r = confirm(title+"?");
+            if (r)
+            {
+                location = link;
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    });
+     
+});
+
+
+
+
+
+/* *******************************************
+ * Zoearth Add Js End
+ * ******************************************* */
+
 /*!
  * Author: Abdullah A Almsaeed
  * Date: 4 Jan 2014

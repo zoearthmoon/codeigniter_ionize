@@ -16,9 +16,7 @@
             <i class="fa fa-check"></i>
             <form id="formMenu<?php echo $id; ?>" action="<?php echo admin_url(); ?>menu/update" name="formMenu<?php echo $id; ?>" method="post" data-id="<?php echo $id; ?>">
             <input type="hidden" name="id_menu" value="<?php echo $menu['id_menu'];?>">
-			<?php if($id > 2 && Authority::can('delete', 'admin/menu')) :?>
-			    <button data-id="<?php echo $id; ?>" aria-hidden="true" data-dismiss="alert" class="close" type="button" title="<?php echo lang('ionize_button_delete'); ?>" >×</button>
-			<?php endif ;?>
+
 			
 			<!-- Internal ID -->
 			<div class="form-group">
@@ -64,6 +62,11 @@
 			<?php if ( Authority::can('edit', 'admin/menu')) :?>
 				<button type="submit" class="btn btn-success yes right btnSaveMenu" data-id="<?php echo $id; ?>">
 					<?php echo lang('ionize_button_save'); ?>
+				</button>
+			<?php endif ;?>
+			<?php if($id > 2 && Authority::can('delete', 'admin/menu')) :?>
+				<button link="<?php echo sayLink::say('menu/delete/'.$id)?>" title="<?php echo lang('sure_to_delete'); ?>" type="submit" class="alertConfirm btn btn-danger yes right btnSaveMenu" data-id="<?php echo $id; ?>">
+					<?php echo lang('ionize_button_delete'); ?>
 				</button>
 			<?php endif ;?>
             </form>
