@@ -16,6 +16,13 @@ class actionList
         $con['menu']['action']['save_ordering'] = "選單更新排序";
         $con['menu']['action']['delete'] = "選單刪除";
         
+        $con['page']['title'] = "頁面管理";
+        $con['page']['action']['index']  = "頁面新增";
+        $con['page']['action']['create'] = "頁面新增";
+        $con['page']['action']['save']   = "頁面儲存";
+        $con['page']['action']['update'] = "頁面更新";
+        $con['page']['action']['save_ordering'] = "頁面更新排序";
+        $con['page']['action']['delete'] = "頁面刪除";
         
         return $con;
     }

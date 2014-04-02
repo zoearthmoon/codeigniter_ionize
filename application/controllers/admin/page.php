@@ -80,6 +80,11 @@ class Page extends MY_admin
 	}
 
 
+	public function index($id_menu=0, $id_parent=NULL)
+	{
+	    $this->create($id_menu, $id_parent);
+	}
+	
 	// ------------------------------------------------------------------------
 
 
