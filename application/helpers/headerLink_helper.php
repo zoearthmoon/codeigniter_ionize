@@ -9,21 +9,22 @@ class headerLink
         $p = 0;
         
         //ionize_menu_content
-        $pmenus[$p]['name']  = lang('ionize_menu_content');
-        $pmenus[$p]['icon']  = 'fa-bar-chart-o';
-        $pmenus[$p]['menus'] = array(
-                'ionize_menu_menu',
-                'ionize_menu_page',
-                'ionize_menu_articles',
-                'ionize_menu_categories',
-                'ionize_menu_tags',
-                'ionize_menu_translation',
-                'ionize_menu_medialist',
-                'ionize_menu_media_manager',
-                'ionize_menu_types',
-                'ionize_menu_content_elements',
-                'ionize_menu_extend_fields');
-        $p++;
+        //$pmenus[$p]['name']  = lang('ionize_menu_content');
+        //$pmenus[$p]['icon']  = 'fa-bar-chart-o';
+        //$pmenus[$p]['menus'] = array(
+        //        'ionize_menu_menu',
+                //'ionize_menu_page',
+                //'ionize_menu_articles',
+                //'ionize_menu_categories',
+                //'ionize_menu_tags',
+                //'ionize_menu_translation',
+                //'ionize_menu_medialist',
+                //'ionize_menu_media_manager',
+                //'ionize_menu_types',
+                //'ionize_menu_content_elements',
+                //'ionize_menu_extend_fields',
+        //);
+        //$p++;
         
         $menuKey = 'ionize_menu_menu';
         $menus[$menuKey]['action']     = 'access';
@@ -103,12 +104,12 @@ class headerLink
         $menus[$menuKey]['title']      = lang('ionize_menu_extend_fields');
         
         //ionize_menu_modules
-        $pmenus[$p]['name']  = lang('ionize_menu_modules');
-        $pmenus[$p]['icon']  = 'fa-bars';
-        $pmenus[$p]['menus'] = array(
-                'ionize_menu_modules_admin',
-                );
-        $p++;
+        //$pmenus[$p]['name']  = lang('ionize_menu_modules');
+        //$pmenus[$p]['icon']  = 'fa-bars';
+        //$pmenus[$p]['menus'] = array(
+        //        'ionize_menu_modules_admin',
+        //        );
+        //$p++;
         
         $menuKey = 'ionize_menu_modules_admin';
         $menus[$menuKey]['action']     = 'install';
@@ -118,13 +119,13 @@ class headerLink
         $menus[$menuKey]['title']      = lang('ionize_menu_modules_admin');
         
         //ionize_menu_tools
-        $pmenus[$p]['name']  = lang('ionize_menu_tools');
-        $pmenus[$p]['icon']  = 'fa-flag';
-        $pmenus[$p]['menus'] = array(
+        //$pmenus[$p]['name']  = lang('ionize_menu_tools');
+        //$pmenus[$p]['icon']  = 'fa-flag';
+        //$pmenus[$p]['menus'] = array(
                 //'google_analytics',
-                'ionize_menu_system_check',
-            );
-        $p++;
+        //        'ionize_menu_system_check',
+        //    );
+        //$p++;
         
         $menuKey = 'google_analytics';
         $menus[$menuKey]['action']     = 'access';
@@ -144,9 +145,12 @@ class headerLink
         $pmenus[$p]['name']  = lang('ionize_menu_settings');
         $pmenus[$p]['icon']  = 'fa-gavel';
         $pmenus[$p]['menus'] = array(
+                'ionize_menu_menu',
+                'ionize_menu_media_manager',
+                
                 'ionize_menu_ionize_settings',
-                //'ionize_menu_languages',
-                //'ionize_menu_users',
+                'ionize_menu_languages',
+                'ionize_menu_users',
                 //'ionize_menu_theme',
                 //'ionize_menu_site_settings',
                 //'ionize_menu_site_settings_technical',
@@ -196,12 +200,12 @@ class headerLink
         $menus[$menuKey]['title']      = lang('ionize_menu_site_settings_technical');        
         
         //ionize_menu_help 
-        $pmenus[$p]['name']  = lang('ionize_menu_help');
-        $pmenus[$p]['icon']  = 'fa-info';
-        $pmenus[$p]['menus'] = array(
-                'ionize_menu_about',
-            );
-        $p++;
+        //$pmenus[$p]['name']  = lang('ionize_menu_help');
+        //$pmenus[$p]['icon']  = 'fa-info';
+        //$pmenus[$p]['menus'] = array(
+        //        'ionize_menu_about',
+        //    );
+        //$p++;
         
         $menuKey = 'ionize_menu_about';
         $menus[$menuKey]['action']     = '';
