@@ -1,23 +1,9 @@
-<?php
-
-/**
- * Ionize
- *
- * @package		Ionize
- * @subpackage	Views
- * @category	Page
- * @author		Ionize Dev Team
- *
- */
-
-$tracker_title = ${Settings::get_lang('default')}['title'];
-if ($tracker_title == '')
-	$tracker_title = $name;
-
-
-?>
-<form name="pageForm" id="pageForm" method="post" action="<?php echo admin_url() . 'page/save'?>">
-
+<section class="content-header">
+    <?php echo sayPathLink::show();?>
+</section>
+<section class="content">
+<div id="maincolumn">
+<form role="form" name="pageForm" id="pageForm" method="post" action="<?php echo admin_url() . 'page/save'?>">
 	<input type="hidden" name="element" id="element" value="page" />
     <input type="hidden" class="data-tracker" name="data_tracker" data-element="page" data-id="<?php echo $id_page; ?>" data-title="<?php echo $tracker_title; ?>" data-url="page/edit/<?php echo $id_page; ?>" />
 	<input type="hidden" name="action" id="action" value="save" />
@@ -35,11 +21,8 @@ if ($tracker_title == '')
 
 
 	<div id="maincolumn" class="">
-		
 		<fieldset>
-				
 		<?php if( ! empty($id_page)) :?>
-			
 			<?php
 				
 				$title = ${Settings::get_lang('default')}['title'];
@@ -806,3 +789,5 @@ if ($tracker_title == '')
 	<?php endif ;?>
 
 </script>
+</div>
+</section>

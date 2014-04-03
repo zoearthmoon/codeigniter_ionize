@@ -74,11 +74,18 @@ class headerLink
         $menus[$menuKey]['auth']       = 'admin/medialist';
         $menus[$menuKey]['href']       = 'medialist';
         $menus[$menuKey]['title']      = lang('ionize_menu_medialist');
+
+        $menuKey = 'ionize_menu_zoe_media_manager';
+        $menus[$menuKey]['action']     = 'access';
+        $menus[$menuKey]['controller'] = 'zoeFileManager';
+        $menus[$menuKey]['auth']       = 'admin/zoe-file-manager';
+        $menus[$menuKey]['href']       = 'zoearth-file-manager';
+        $menus[$menuKey]['title']      = lang('ionize_menu_media_manager');
         
         $menuKey = 'ionize_menu_media_manager';
         $menus[$menuKey]['action']     = 'access';
-        $menus[$menuKey]['controller'] = 'filemanager';
-        $menus[$menuKey]['auth']       = 'admin/filemanager';
+        $menus[$menuKey]['controller'] = 'media';
+        $menus[$menuKey]['auth']       = 'admin/media';
         $menus[$menuKey]['href']       = 'media/get_media_manager';
         $menus[$menuKey]['title']      = lang('ionize_menu_media_manager');
         
@@ -146,10 +153,10 @@ class headerLink
         $pmenus[$p]['icon']  = 'fa-gavel';
         $pmenus[$p]['menus'] = array(
                 'ionize_menu_menu',
-                'ionize_menu_media_manager',
-                
+                //'ionize_menu_media_manager',
+                'ionize_menu_zoe_media_manager',
                 'ionize_menu_ionize_settings',
-                'ionize_menu_languages',
+                //'ionize_menu_languages',
                 'ionize_menu_users',
                 //'ionize_menu_theme',
                 //'ionize_menu_site_settings',
@@ -159,43 +166,43 @@ class headerLink
         
         $menuKey = 'ionize_menu_ionize_settings';
         $menus[$menuKey]['action']     = 'access';
-        $menus[$menuKey]['controller'] = 'settings';
-        $menus[$menuKey]['auth']       = 'admin/settings/ionize';
+        $menus[$menuKey]['controller'] = 'setting';
+        $menus[$menuKey]['auth']       = 'admin/setting/ionize';
         $menus[$menuKey]['href']       = 'setting/ionize';
         $menus[$menuKey]['title']      = lang('ionize_menu_ionize_settings');        
 
         $menuKey = 'ionize_menu_languages';
         $menus[$menuKey]['action']     = 'access';
-        $menus[$menuKey]['controller'] = 'settings';
-        $menus[$menuKey]['auth']       = 'admin/settings/languages';
+        $menus[$menuKey]['controller'] = 'setting';
+        $menus[$menuKey]['auth']       = 'admin/setting/languages';
         $menus[$menuKey]['href']       = 'lang';
         $menus[$menuKey]['title']      = lang('ionize_menu_languages');
         
         $menuKey = 'ionize_menu_users';
         $menus[$menuKey]['action']     = 'access';
-        $menus[$menuKey]['controller'] = 'users_roles';
-        $menus[$menuKey]['auth']       = 'admin/users_roles';
+        $menus[$menuKey]['controller'] = 'user';
+        $menus[$menuKey]['auth']       = 'admin/user';
         $menus[$menuKey]['href']       = 'user';
         $menus[$menuKey]['title']      = lang('ionize_menu_users');
         
         $menuKey = 'ionize_menu_theme';
         $menus[$menuKey]['action']     = 'access';
-        $menus[$menuKey]['controller'] = 'settings';
-        $menus[$menuKey]['auth']       = 'admin/settings/themes';
+        $menus[$menuKey]['controller'] = 'setting';
+        $menus[$menuKey]['auth']       = 'admin/setting/themes';
         $menus[$menuKey]['href']       = 'setting/themes';
         $menus[$menuKey]['title']      = lang('ionize_menu_theme');
 
         $menuKey = 'ionize_menu_site_settings';
         $menus[$menuKey]['action']     = 'access';
-        $menus[$menuKey]['controller'] = 'settings';
-        $menus[$menuKey]['auth']       = 'admin/settings/website';
+        $menus[$menuKey]['controller'] = 'setting';
+        $menus[$menuKey]['auth']       = 'admin/setting/website';
         $menus[$menuKey]['href']       = 'setting';
         $menus[$menuKey]['title']      = lang('ionize_menu_site_settings');
         
         $menuKey = 'ionize_menu_site_settings_technical';
         $menus[$menuKey]['action']     = 'access';
-        $menus[$menuKey]['controller'] = 'settings';
-        $menus[$menuKey]['auth']       = 'admin/settings/website';
+        $menus[$menuKey]['controller'] = 'setting';
+        $menus[$menuKey]['auth']       = 'admin/setting/website';
         $menus[$menuKey]['href']       = 'setting/technical';
         $menus[$menuKey]['title']      = lang('ionize_menu_site_settings_technical');        
         
