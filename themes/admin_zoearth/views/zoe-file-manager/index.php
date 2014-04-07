@@ -8,6 +8,7 @@
 </section>
 <section class="content">
 <div id="maincolumn">
-	File manager!!!
+    <iframe src="<?php echo site_url().'/../filemanager/dialog.php';?>" width="100%" height="500px">
+    </iframe>
 </div>
 </section>

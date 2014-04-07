@@ -20,10 +20,10 @@ mb_internal_encoding('UTF-8');
 //    |   |   |   |   |- plugin.min.js
 
 $base_url ="http://".$_SERVER['HTTP_HOST'];  // DON'T TOUCH (base url (only domain) of site (without final /)).
-$upload_dir = '/source/'; // path from base_url to base of upload folder (with start and final /)
-$current_path = '../source/'; // relative path from filemanager folder to upload folder (with final /)
+$upload_dir = '/files/'; // path from base_url to base of upload folder (with start and final /)
+$current_path = '../files/'; // relative path from filemanager folder to upload folder (with final /)
 //thumbs folder can't put inside upload folder
-$thumbs_base_path = '../thumbs/'; // relative path from filemanager folder to thumbs folder (with final /)
+$thumbs_base_path = 'thumbs/'; // relative path from filemanager folder to thumbs folder (with final /)
 
 // OPTIONAL SECURITY
 // if set to true only those will access RF whose url contains the access key(akey) like: 
@@ -59,7 +59,8 @@ if ((int)(ini_get('post_max_size')) < $MaxSizeUpload){
 	$MaxSizeUpload = (int)(ini_get('post_max_size'));
 }
 
-$default_language 	= "en_EN"; //default language file name
+//$default_language 	= "en_EN"; //default language file name
+$default_language 	= "zh_TW"; //default language file name
 $icon_theme 		= "ico"; //ico or ico_dark you can cusatomize just putting a folder inside filemanager/img
 $show_folder_size 	= TRUE; //Show or not show folder size in list view feature in filemanager (is possible, if there is a large folder, to greatly increase the calculations)
 $show_sorting_bar 	= TRUE; //Show or not show sorting feature in filemanager
@@ -134,7 +135,7 @@ $ext = array_merge($ext_img, $ext_file, $ext_misc, $ext_video,$ext_music); //all
 /******************
  * AVIARY config
 *******************/
-$aviary_active 	= TRUE;
+$aviary_active 	= FALSE;
 $aviary_key 	= "dvh8qudbp6yx2bnp";
 $aviary_secret	= "m6xaym5q42rpw433";
 $aviary_version	= 3;
@@ -150,14 +151,14 @@ $file_number_limit_js = 500;
 // Hidden files and folders
 //**********************
 // set the names of any folders you want hidden (eg "hidden_folder1", "hidden_folder2" ) Remember all folders with these names will be hidden (you can set any exceptions in config.php files on folders)
-$hidden_folders = array();
+$hidden_folders = array('.thumbs');
 // set the names of any files you want hidden. Remember these names will be hidden in all folders (eg "this_document.pdf", "that_image.jpg" )
 $hidden_files = array('config.php');
 
 /*******************
  * JAVA upload 
  *******************/
-$java_upload = TRUE;
+$java_upload = FALSE;
 $JAVAMaxSizeUpload = 200; //Gb
 
 
@@ -172,6 +173,11 @@ $JAVAMaxSizeUpload = 200; //Gb
 // Remember than the image creation respect the folder hierarchy so if you are inside source/test/test1/ the new image will create at
 // path_from_filemanager/test/test1/
 // PS if there isn't write permission in your destination folder you must set it
+
+
+//
+//../cache/thumbs/no_picture_source_smiley.png
+
 $fixed_image_creation                   = FALSE; //activate or not the creation of one or more image resized with fixed path from filemanager folder
 $fixed_path_from_filemanager            = array('../test/','../test1/'); //fixed path of the image folder from the current position on upload folder
 $fixed_image_creation_name_to_prepend   = array('','test_'); //name to prepend on filename
@@ -185,7 +191,7 @@ $fixed_image_creation_height            = array(200,''); //height of image (you 
 // just simply add a value in the array
 // The image creation path is always relative so if i'm inside source/test/test1 and I upload an image, the path start from here
 $relative_image_creation                = FALSE; //activate or not the creation of one or more image resized with relative path from upload folder
-$relative_path_from_current_pos         = array('thumb/','thumb/'); //relative path of the image folder from the current position on upload folder
+$relative_path_from_current_pos         = array('thumbs/','thumbs/'); //relative path of the image folder from the current position on upload folder
 $relative_image_creation_name_to_prepend= array('','test_'); //name to prepend on filename
 $relative_image_creation_name_to_append = array('_test',''); //name to append on filename
 $relative_image_creation_width          = array(300,400); //width of image (you can leave empty if you set height)
