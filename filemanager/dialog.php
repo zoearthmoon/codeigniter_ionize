@@ -683,7 +683,9 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 			    $file_path=$current_path.$rfm_subfolder.$subdir.$file;
 			    //check if file have illegal caracter
 			    
-			    $filename=substr($file, 0, '-' . (strlen($file_array['extension']) + 1));
+			    //$filename=substr($file, 0, '-' . (strlen($file_array['extension']) + 1));
+			    //20140408 zoearth
+			    $filename = $file;
 			    
 			    if($file!=fix_filename($file,$transliteration)){
 				$file1=fix_filename($file,$transliteration);
@@ -698,7 +700,10 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 				    $file_path1=($current_path.$rfm_subfolder.$subdir.$file1);
 				}
 				
-				$filename=substr($file1, 0, '-' . (strlen($file_array['extension']) + 1));
+				//$filename=substr($file1, 0, '-' . (strlen($file_array['extension']) + 1));
+				//20140408 zoearth
+				$filename = $file1;
+				
 				rename_file($file_path,fix_filename($filename,$transliteration),$transliteration);
 				$file=$file1;
 				$file_array['extension']=fix_filename($file_array['extension'],$transliteration);

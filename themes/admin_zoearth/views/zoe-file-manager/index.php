@@ -8,7 +8,6 @@
 </section>
 <section class="content">
 <div id="maincolumn">
-    <iframe src="<?php echo site_url().'/../filemanager/dialog.php';?>" width="100%" height="500px">
-    </iframe>
+    <iframe src="<?php echo site_url().'/../filemanager/dialog.php';?>" width="100%" height="500px"></iframe>
 </div>
 </section>

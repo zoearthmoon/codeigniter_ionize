@@ -1,6 +1,13 @@
 <?php
+//20140408 zoearth 權限驗證
+session_save_path('../session_tmp');
 session_start();
+if (!(@$_SESSION['id_user'] > 0))
+{
+    echo '請先登入';exit();
+}
 mb_internal_encoding('UTF-8');
+
 //------------------------------------------------------------------------------
 // DON'T COPY THIS VARIABLES IN FOLDERS config.php FILES
 //------------------------------------------------------------------------------
@@ -97,7 +104,7 @@ $image_resizing_height = 0;
 $default_view = 0;
 
 //set if the filename is truncated when overflow first row 
-$ellipsis_title_after_first_row = TRUE;
+$ellipsis_title_after_first_row = FALSE;
 
 //*************************
 //Permissions configuration
@@ -153,7 +160,7 @@ $file_number_limit_js = 500;
 // set the names of any folders you want hidden (eg "hidden_folder1", "hidden_folder2" ) Remember all folders with these names will be hidden (you can set any exceptions in config.php files on folders)
 $hidden_folders = array('.thumbs');
 // set the names of any files you want hidden. Remember these names will be hidden in all folders (eg "this_document.pdf", "that_image.jpg" )
-$hidden_files = array('config.php');
+$hidden_files = array('config.php','index.htm','index.html');
 
 /*******************
  * JAVA upload 
