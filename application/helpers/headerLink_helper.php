@@ -169,7 +169,7 @@ class headerLink
         $menus[$menuKey]['controller'] = 'setting';
         $menus[$menuKey]['auth']       = 'admin/setting/ionize';
         $menus[$menuKey]['href']       = 'setting/ionize';
-        $menus[$menuKey]['title']      = lang('ionize_menu_ionize_settings');        
+        $menus[$menuKey]['title']      = lang('admin_web_setting');        
 
         $menuKey = 'ionize_menu_languages';
         $menus[$menuKey]['action']     = 'access';

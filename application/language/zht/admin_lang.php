@@ -1,5 +1,6 @@
 <?php
 
+$lang['admin_web_setting'] = "網站設定";
 $lang['admin_hello'] = "Hello!!";
 $lang['validate_required'] = "必填";
 $lang['validate_remote'] = "請修正此欄位";
