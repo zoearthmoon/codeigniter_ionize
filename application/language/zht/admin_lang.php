@@ -21,7 +21,7 @@ $lang['validate_min'] = "請輸入不小於 {0} 的數值";
 
 
 $lang['ionize_login_password_error'] = "帳號或密碼錯誤";
-
+$lang['admin_ionize_settings'] = "介面設定";
 $lang['add_new_menu'] = "新增選單";
 $lang['sure_to_delete'] = "確定刪除";
 

@@ -1,8 +1,29 @@
 <section class="content-header">
     <div style="float:right;">
-    <a class="btn btn-primary z0-add" href="<?php echo sayLink::say('menu/create')?>">
-        <i class="icon-pencil"></i><?php echo lang('add_new_menu')?>
-    </a>
+    <ul class="nav nav-tabs">
+        <?php if(Authority::can('','setting')):?>
+        <li <?php echo isActive::_('setting','') ? 'class="active"':'';?>>
+            <a href="<?php echo sayLink::say('setting')?>" ><?php echo lang('ionize_menu_site_settings')?></a>
+        </li>
+        <?php endif;?>
+        <?php if(Authority::can('technical','setting')):?>
+        <li <?php echo isActive::_('setting','technical') ? 'class="active"':'';?>>
+            <a href="<?php echo sayLink::say('setting/technical')?>" ><?php echo lang('ionize_menu_site_settings_technical')?></a>
+        </li>
+        <?php endif;?>
+        <?php if(Authority::can('themes','setting')):?>
+        <li <?php echo isActive::_('setting','themes') ? 'class="active"':'';?>>
+            <a href="<?php echo sayLink::say('setting/themes')?>" ><?php echo lang('ionize_menu_theme')?></a>
+        </li>
+        <?php endif;?>
+        <?php if(Authority::can('ionize','setting')):?>
+        <li <?php echo isActive::_('setting','ionize') ? 'class="active"':'';?>>
+            <a href="<?php echo sayLink::say('setting/ionize')?>" ><?php echo lang('admin_ionize_settings')?></a>
+        </li>
+        <?php endif;?>
+        
+        
+    </ul>
     </div>
     <?php echo sayPathLink::show();?>
 </section>

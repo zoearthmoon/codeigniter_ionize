@@ -24,6 +24,14 @@ class actionList
         $con['page']['action']['save_ordering'] = "頁面更新排序";
         $con['page']['action']['delete'] = "頁面刪除";
         
+        $con['setting']['title'] = "網站設定";
+        $con['setting']['action']['index']  = "網站設定";
+        $con['setting']['action']['create'] = "網站設定";
+        $con['setting']['action']['save']   = "網站設定儲存";
+        $con['setting']['action']['update'] = "網站設定更新";
+        $con['setting']['action']['save_ordering'] = "網站設定更新排序";
+        $con['setting']['action']['delete'] = "網站設定刪除";
+        
         return $con;
     }
 }

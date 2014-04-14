@@ -4,7 +4,7 @@ class isActive
 {
     public static function _($controllerName='',$action='')
     {
-        $action = $action ? $action:'index';
+        //$action = $action ? $action:'index';
         $ci =  &get_instance();
         $nowController = $ci->uri->segment(2);
         $nowAction     = $ci->uri->segment(3);

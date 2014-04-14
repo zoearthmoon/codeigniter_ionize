@@ -454,7 +454,7 @@ class Setting extends MY_admin
 
 
 		// Answer
-		$this->success(lang('ionize_message_settings_saved'));
+		$this->success(lang('ionize_message_settings_saved'),NULL,'setting');
 	}
 
 
