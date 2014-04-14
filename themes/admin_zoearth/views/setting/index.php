@@ -21,8 +21,6 @@
             <a href="<?php echo sayLink::say('setting/ionize')?>" ><?php echo lang('admin_ionize_settings')?></a>
         </li>
         <?php endif;?>
-        
-        
     </ul>
     </div>
     <?php echo sayPathLink::show();?>
