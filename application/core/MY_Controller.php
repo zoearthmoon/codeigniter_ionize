@@ -636,6 +636,8 @@ class MY_Admin extends MY_Controller
 		$this->load->helper('addScript_helper');
 		$this->load->helper('message_helper');
 		$this->load->helper('sayPathLink_helper');//20140327 zoearth
+		$this->load->helper('isActive_helper');//20140414 zoearth
+		
 		
 		// Redirect the not authorized user to the login panel. See /application/config/user.php
 		User()->restrict_type_redirect = array(
