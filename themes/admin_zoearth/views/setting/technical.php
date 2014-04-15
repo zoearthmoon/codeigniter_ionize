@@ -26,7 +26,7 @@
     <?php echo sayPathLink::show();?>
 </section>
 <section class="content">
-<form action="<?php echo admin_url(); ?>setting/save" method="post" >
+<form action="<?php echo admin_url(); ?>setting/save_technical_settings" method="post" >
 <div id="maincolumn">
 	<!-- Tabs -->
 	<div id="webSettingsTab" class="mainTabs">
@@ -38,10 +38,6 @@
 			<li >
 			    <a href="#tabEmail" data-toggle="tab" >
 			    <?php echo lang('ionize_title_mail_send'); ?></a>
-		    </li>
-			<li >
-			    <a href="#tabSystem" data-toggle="tab" >
-			    <?php echo lang('ionize_title_system'); ?></a>
 		    </li>
 		</ul>
 		<div class="clear"></div>
@@ -75,7 +71,7 @@
             </div>
             <div class="form-group">
                 <label><?php echo lang('ionize_label_db_pass'); ?></label>
-                <input id="db_pass" name="db_pass" class="form-control" type="password" value="" />
+                <input id="db_pass" name="db_pass" class="form-control" type="password" value="<?php echo $db_pass; ?>" />
             </div>
 	    </div>
 	    
@@ -88,9 +84,9 @@
                 <input id="email_<?php echo $email ?>" name="email_<?php echo $email ?>" class="form-control" type="text" value="<?php echo Settings::get('email_'.$email); ?>" />
             </div>
 			<?php endforeach ;?>
-
+            <legend><?php echo lang('ionize_title_email_server'); ?></legend>
             <div class="form-group">
-                <label><?php echo lang('ionize_title_email_server'); ?></label>
+                <label><?php echo lang('ionize_label_site_email'); ?></label>
                 <input id="site_email" name="site_email" class="form-control" type="text" value="<?php echo Settings::get('site_email'); ?>" />
             </div>
             <div class="form-group">
@@ -139,85 +135,6 @@
 					<option <?php if ($mailtype == 'html'):?>selected="selected"<?php endif;?> value="html">HTML</option>
 				</select>
             </div>
-	    </div>
-	    
-	    <div class="tab-pane fade" id="tabSystem" >
-            <div class="form-group">
-                <label><?php echo lang('ionize_label_environment'); ?></label>
-                <?php echo ENVIRONMENT; ?>
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_title_php_version'); ?></label>
-                <?php echo phpversion(); ?>
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_title_db_version'); ?></label>
-                <?php echo $this->db->platform().' '.$this->db->version(); ?>
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_label_file_uploads'); ?></label>
-				<?php if(ini_get('file_uploads') == true) :?>
-					<a class="icon ok"></a>
-				<?php else :?>
-					<a class="icon nok"></a>
-				<?php endif ;?>
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_label_max_upload_size'); ?></label>
-                <?php echo ini_get('upload_max_filesize'); ?>
-            </div>
-            <div class="form-group">
-                <label>&nbsp;</label>
-                <a href="<?php echo base_url() . config_item('admin_url'); ?>/desktop/get/system/phpinfo" target="_blank">Complete PHP Info</a>
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_label_antispam_key'); ?></label>
-				<input id="form_antispam_key" name="form_antispam_key" type="text" class="form-control" value="<?php echo $form_antispam_key; ?>" />
-				<a class="icon left refresh ml5" id="antispamRefresh" title="<?php echo lang('ionize_label_refresh_antispam_key'); ?>"></a>
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_title_encryption_key'); ?></label>
-                <textarea disabled="disabled" class="w300"><?php echo config_item('encryption_key'); ?></textarea>
-            </div>
-            <div class="form-group">
-                <label>&nbsp;</label>
-                <input id="keysSettingsFormSubmit" type="submit" class="submit" value="<?php echo lang('ionize_button_save'); ?>" />
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_help_cache_expiration'); ?></label>
-				<input id="cache_expiration" name="cache_expiration" class="inputtext w60" type="text" value="<?php echo config_item('cache_expiration'); ?>" />
-				<input id="submit_cache" type="submit" class="submit m0" value="<?php echo lang('ionize_button_save'); ?>" />
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_label_clear_cache'); ?></label>
-                <input id="clear_cache" type="button" class="submit m0" value="<?php echo lang('ionize_button_clear_cache'); ?>" />
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_title_admin_url'); ?></label>
-				<input id="admin_url" name="admin_url" class="inputtext w120" value="<?php echo config_item('admin_url'); ?>" /><br/>
-				<p class="lite pl10"><?php echo lang('ionize_onchange_ionize_settings'); ?></p>
-            </div>
-            <div class="form-group">
-                <label>&nbsp;</label>
-                <input id="submit_admin_url" type="submit" class="submit" value="<?php echo lang('ionize_button_save'); ?>" />
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_label_maintenance'); ?></label>
-                <input class="inputcheckbox" <?php if (config_item('maintenance') == '1'):?>checked="checked"<?php endif;?> type="checkbox" name="maintenance" id="maintenance" value="1" />
-            </div>
-            <div class="form-group">
-                <label><?php echo lang('ionize_label_maintenance_ips'); ?></label>
-                <span><?php echo lang('ionize_label_your_ip'); ?> : <?php echo $_SERVER['REMOTE_ADDR']; ?></span><br/>
-                <textarea name="maintenance_ips" id="maintenance_ips" class="h50 w140"><?php echo (! empty($maintenance_ips)) ? $maintenance_ips : $_SERVER['REMOTE_ADDR']; ?></textarea>
-            </div>
-            
-            <?php if (function_exists('curl_init')) : ?>
-            <div class="form-group">
-                <label><?php echo lang('ionize_title_maintenance_page'); ?></label>
-                <div id="maintenancePageContainer"></div>
-            </div>
-            <?php endif ;?>
-	    
 	    </div>
 	</div>
 </div>
