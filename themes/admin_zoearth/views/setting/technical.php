@@ -46,6 +46,10 @@
 	<div class="tab-content">
 	    <div class="tab-pane active" id="tabDatabase" >
             <div class="form-group">
+                <label><a class="btn btn-primary" href="<?php echo admin_url(); ?>setting/backup_database"><?php echo lang('ionize_label_db_backup'); ?></a></label>
+                
+            </div>
+            <div class="form-group">
                 <label><?php echo lang('ionize_label_db_driver'); ?></label>
                 <select name="db_driver" id="db_driver" class="form-control">
                     <option <?php if ($this->db->platform() == 'mysql'):?>selected="selected"<?php endif;?>  value="mysql">MySQL</option>

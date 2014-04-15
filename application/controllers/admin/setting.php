@@ -1203,7 +1203,7 @@ class Setting extends MY_admin
 
 		$backup = $this->dbutil->backup($prefs);
 
-		force_download('dbbackup.gz', $backup);
+		force_download(date('Y-m-d').'.zip', $backup);
 	}
 
 
