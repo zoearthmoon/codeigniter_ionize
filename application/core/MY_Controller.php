@@ -838,6 +838,7 @@ class MY_Admin extends MY_Controller
         $this->template['addon_data'] = $option['addon_data'];
 		$this->template['type'] = $option['type'];
 		$this->template['message'] = $option['message'];
+		$this->template['message'] .= '<br><span class="success">'.lang('refresh_in_3').'</span>';
 		
 		$this->output('system/alert');
 		if ($option['type'] == 'success')

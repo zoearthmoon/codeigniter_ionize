@@ -12,7 +12,7 @@
 */
 
 // Default admin language code
-$config['default_admin_lang'] = 'en';
+$config['default_admin_lang'] = 'zht';
 
 // Default language code
 // This code depends on the language defined through the Ionize admin panel

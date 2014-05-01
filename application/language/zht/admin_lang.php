@@ -18,7 +18,7 @@ $lang['validate_rangelength'] = "請輸入長度介於 {0} 和 {1} 之間的字�
 $lang['validate_range'] = "請輸入介於 {0} 和 {1} 之間的數值";
 $lang['validate_max'] = "請輸入不大於 {0} 的數值";
 $lang['validate_min'] = "請輸入不小於 {0} 的數值";
-
+$lang['refresh_in_3'] = "三秒後自動轉向";
 
 $lang['ionize_login_password_error'] = "帳號或密碼錯誤";
 $lang['admin_ionize_settings'] = "介面設定";
