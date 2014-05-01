@@ -512,13 +512,13 @@ class Setting extends MY_admin
 		// Update the language config file
 		if ( FALSE == $this->config_model->change('language.php', 'default_admin_lang', $default_admin_lang))
 		{
-			$this->error(lang('ionize_message_lang_file_not_saved'));
+			$this->error(lang('ionize_message_lang_file_not_saved'),NULL,'setting/ionize');
 		}
 
 		// Set the reload CB
 		$this->_callback_reload_backend();
 
-		$this->success(lang('ionize_message_settings_saved'));
+		$this->success(lang('ionize_message_settings_saved'),NULL,'setting/ionize');
 	}
 
 
@@ -720,7 +720,7 @@ class Setting extends MY_admin
 		);
 		
 		// Answer
-		$this->success(lang('ionize_message_settings_saved'));
+		$this->success(lang('ionize_message_settings_saved'),NULL,'setting/themes');
 	}
 
 
@@ -785,7 +785,7 @@ class Setting extends MY_admin
 				lang('ionize_title_theme')
 			);
 
-			$this->success(lang('ionize_message_views_saved'));
+			$this->success(lang('ionize_message_views_saved'),NULL,'setting/themes');
 		}
 		
 	}
