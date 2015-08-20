@@ -28,31 +28,31 @@
 <section class="content">
 
 <div id="maincolumn">
-	<!-- Tabs -->
-	<div id="webSettingsTab" class="mainTabs">
-		<ul class="nav nav-tabs">
-			<li class="active" ><a href="#tabv" data-toggle="tab" ><?php echo lang('ionize_title_views_list'); ?> : <?php echo Settings::get('theme'); ?></a></li>
-			<li><a href="#tabp" data-toggle="tab" ><?php echo lang('ionize_title_options'); ?></a></li>
-		</ul>
-		<div class="clear"></div>
-	</div>
+    <!-- Tabs -->
+    <div id="webSettingsTab" class="mainTabs">
+        <ul class="nav nav-tabs">
+            <li class="active" ><a href="#tabv" data-toggle="tab" ><?php echo lang('ionize_title_views_list'); ?> : <?php echo Settings::get('theme'); ?></a></li>
+            <li><a href="#tabp" data-toggle="tab" ><?php echo lang('ionize_title_options'); ?></a></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
 
     <div class="tab-content">
-	<!-- Tabs content blocks -->
+    <!-- Tabs content blocks -->
 
     
-	<div class="tab-pane active" id="tabv" >
-	    <form name="viewsForm" id="viewsForm" method="post" action="<?php echo admin_url(); ?>setting/save_views">
+    <div class="tab-pane active" id="tabv" >
+        <form name="viewsForm" id="viewsForm" method="post" action="<?php echo admin_url(); ?>setting/save_views">
         <table class="table table-bordered" >
             <thead>
-			    <tr>
-					<th axis="string"><?php echo lang('ionize_label_view_filename'); ?></th>
-					<th axis="string"><?php echo lang('ionize_label_view_folder'); ?></th>
-					<th><?php echo lang('ionize_label_view_name'); ?></th>
-					<th><?php echo lang('ionize_label_view_type'); ?></th>
-				</tr>
-			</thead>
-		    <tbody>
+                <tr>
+                    <th axis="string"><?php echo lang('ionize_label_view_filename'); ?></th>
+                    <th axis="string"><?php echo lang('ionize_label_view_folder'); ?></th>
+                    <th><?php echo lang('ionize_label_view_name'); ?></th>
+                    <th><?php echo lang('ionize_label_view_type'); ?></th>
+                </tr>
+            </thead>
+            <tbody>
             <?php foreach($files as $file) :?>
                 <?php $rel = $file->path . $file->name; ?>
                 <tr>
@@ -68,7 +68,7 @@
                             <option <?php if($file->type == 'article') :?> selected="selected" <?php endif ;?> value="article">Article</option>
                         </select>
                     </td>
-				</tr>
+                </tr>
             <?php endforeach ;?>
             </tbody>
         </table>
@@ -76,31 +76,31 @@
             <button class="btn btn-primary" type="submit"><?php echo lang('ionize_button_save')?></button>
         </div>
         </form>
-	</div>
-	
-	<div class="tab-pane fade" id="tabp" >
-	    <form name="themesForm" id="themesForm" method="post" action="<?php echo admin_url(); ?>setting/save_themes">
+    </div>
+    
+    <div class="tab-pane fade" id="tabp" >
+        <form name="themesForm" id="themesForm" method="post" action="<?php echo admin_url(); ?>setting/save_themes">
         <div class="form-group">
             <label><?php echo lang('ionize_label_theme'); ?></label>
-			<select class="form-control" name="theme">
-				<?php foreach($themes as $theme): ?>
-				<option value="<?php echo $theme; ?>" <?php if($theme == Settings::get('theme') ): ?>selected="selected"<?php endif; ?>><?php echo $theme; ?></option>
-				<?php endforeach ;?>
-			</select>
+            <select class="form-control" name="theme">
+                <?php foreach($themes as $theme): ?>
+                <option value="<?php echo $theme; ?>" <?php if($theme == Settings::get('theme') ): ?>selected="selected"<?php endif; ?>><?php echo $theme; ?></option>
+                <?php endforeach ;?>
+            </select>
         </div>
         <div class="form-group">
             <label><?php echo lang('ionize_label_theme_admin'); ?></label>
-			<select class="form-control" name="theme_admin">
-				<?php foreach($themes_admin as $theme) :?>
-				<option value="<?php echo $theme; ?>" <?php if($theme == Settings::get('theme_admin') ) :?>selected="selected"<?php endif; ?>><?php echo $theme; ?></option>
-				<?php endforeach ;?>
-			</select>
+            <select class="form-control" name="theme_admin">
+                <?php foreach($themes_admin as $theme) :?>
+                <option value="<?php echo $theme; ?>" <?php if($theme == Settings::get('theme_admin') ) :?>selected="selected"<?php endif; ?>><?php echo $theme; ?></option>
+                <?php endforeach ;?>
+            </select>
         </div>
         <div class="box-footer">
             <button class="btn btn-primary" type="submit"><?php echo lang('ionize_button_save')?></button>
         </div>
         </form>
-	</div>
+    </div>
     </div>
 </div>
 </section>

@@ -28,23 +28,23 @@
 <section class="content">
 <form action="<?php echo admin_url(); ?>setting/save_technical_settings" method="post" >
 <div id="maincolumn">
-	<!-- Tabs -->
-	<div id="webSettingsTab" class="mainTabs">
-		<ul class="nav nav-tabs">
-			<li class="active" >
-			    <a href="#tabDatabase" data-toggle="tab" >
-			    <?php echo lang('ionize_title_database'); ?></a>
-		    </li>
-			<li >
-			    <a href="#tabEmail" data-toggle="tab" >
-			    <?php echo lang('ionize_title_mail_send'); ?></a>
-		    </li>
-		</ul>
-		<div class="clear"></div>
-	</div>
-	
-	<div class="tab-content">
-	    <div class="tab-pane active" id="tabDatabase" >
+    <!-- Tabs -->
+    <div id="webSettingsTab" class="mainTabs">
+        <ul class="nav nav-tabs">
+            <li class="active" >
+                <a href="#tabDatabase" data-toggle="tab" >
+                <?php echo lang('ionize_title_database'); ?></a>
+            </li>
+            <li >
+                <a href="#tabEmail" data-toggle="tab" >
+                <?php echo lang('ionize_title_mail_send'); ?></a>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="tab-content">
+        <div class="tab-pane active" id="tabDatabase" >
             <div class="form-group">
                 <label><a class="btn btn-primary" href="<?php echo admin_url(); ?>setting/backup_database"><?php echo lang('ionize_label_db_backup'); ?></a></label>
                 
@@ -77,17 +77,17 @@
                 <label><?php echo lang('ionize_label_db_pass'); ?></label>
                 <input id="db_pass" name="db_pass" class="form-control" type="password" value="<?php echo $db_pass; ?>" />
             </div>
-	    </div>
-	    
-	    <div class="tab-pane fade" id="tabEmail" >
-			<!-- Emails -->
-			<?php $emails = array('contact', 'info', 'technical'); ?>
-			<?php foreach($emails as $email) :?>
+        </div>
+        
+        <div class="tab-pane fade" id="tabEmail" >
+            <!-- Emails -->
+            <?php $emails = array('contact', 'info', 'technical'); ?>
+            <?php foreach($emails as $email) :?>
             <div class="form-group">
                 <label><?php echo lang('ionize_label_email_'.$email); ?></label>
                 <input id="email_<?php echo $email ?>" name="email_<?php echo $email ?>" class="form-control" type="text" value="<?php echo Settings::get('email_'.$email); ?>" />
             </div>
-			<?php endforeach ;?>
+            <?php endforeach ;?>
             <legend><?php echo lang('ionize_title_email_server'); ?></legend>
             <div class="form-group">
                 <label><?php echo lang('ionize_label_site_email'); ?></label>
@@ -95,11 +95,11 @@
             </div>
             <div class="form-group">
                 <label><?php echo lang('ionize_label_smtp_protocol'); ?></label>
-				<select name="protocol" id="emailProtocol" class="form-control">
-					<option <?php if ($protocol == 'smtp'):?>selected="selected"<?php endif;?> value="smtp">SMTP</option>
-					<option <?php if ($protocol == 'mail'):?>selected="selected"<?php endif;?> value="mail">Mail</option>
-					<option <?php if ($protocol == 'sendmail'):?>selected="selected"<?php endif;?>  value="sendmail">SendMail</option>
-				</select>
+                <select name="protocol" id="emailProtocol" class="form-control">
+                    <option <?php if ($protocol == 'smtp'):?>selected="selected"<?php endif;?> value="smtp">SMTP</option>
+                    <option <?php if ($protocol == 'mail'):?>selected="selected"<?php endif;?> value="mail">Mail</option>
+                    <option <?php if ($protocol == 'sendmail'):?>selected="selected"<?php endif;?>  value="sendmail">SendMail</option>
+                </select>
             </div>
 
             <div class="form-group">
@@ -134,13 +134,13 @@
             
             <div class="form-group">
                 <label><?php echo lang('ionize_label_email_mailtype'); ?></label>
-				<select name="mailtype" id="mailtype" class="form-control">
-					<option <?php if ($mailtype == 'text'):?>selected="selected"<?php endif;?> value="text">Text</option>
-					<option <?php if ($mailtype == 'html'):?>selected="selected"<?php endif;?> value="html">HTML</option>
-				</select>
+                <select name="mailtype" id="mailtype" class="form-control">
+                    <option <?php if ($mailtype == 'text'):?>selected="selected"<?php endif;?> value="text">Text</option>
+                    <option <?php if ($mailtype == 'html'):?>selected="selected"<?php endif;?> value="html">HTML</option>
+                </select>
             </div>
-	    </div>
-	</div>
+        </div>
+    </div>
 </div>
 <div class="box-footer">
     <button class="btn btn-primary" type="submit"><?php echo lang('ionize_button_save')?></button>

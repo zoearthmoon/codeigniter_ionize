@@ -49,6 +49,50 @@ class User extends My_Admin
 		$roles = $this->role_model->get_list();
 		$this->template['roles'] = array_filter($roles, array($this, '_filter_roles'));
 
+		
+		if (Settings::isZoearthAdmin())
+		{
+		    //20140501 zoearth 取得使用者
+		    $nb = ($this->input->post('nb')) ? $this->input->post('nb') : '50';
+		    if ($nb < 25) $nb = 25;
+		    $page = $page - 1;
+		    $offset = $page * $nb;
+		    $this->template['filter'] = array();
+		    $like = array();
+		    foreach(array('username', 'screen_name', 'email') as $key)
+		    {
+		        if( $this->input->post($key))
+		        {
+		            $like[$key] = $this->input->post($key);
+		            $this->template['filter'][$key] = $like[$key];
+		        }
+		    }
+		    $where = array();
+		    if( $this->input->post('id_role'))
+		    {
+		        $this->template['filter']['id_role'] = $this->input->post('id_role');
+		        $where['user.id_role'] = $this->input->post('id_role');
+		    }
+		    if( $this->input->post('registered'))
+		    {
+		        $where['order_by'] = 'join_date DESC';
+		    }
+		    $where = array_merge(
+		            $where,
+		            array(
+		                    'limit' => $nb,
+		                    'offset' => $offset,
+		                    'like' => $like,
+		                    'role_level <= ' => $this->current_role['role_level']
+		            )
+		    );
+		    $this->template['users'] = $this->user_model->get_list_with_role($where);
+		    
+		    //20140501 zoearth 取得角色
+		    
+		}
+
+		
 		$this->output('user/index');
 	}
 
